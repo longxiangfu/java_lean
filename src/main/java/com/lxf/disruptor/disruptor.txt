@@ -1,0 +1,5 @@
+在JDK的多线程与并发库一文中, 提到了BlockingQueue实现了生产者-消费者模型
+BlockingQueue是基于锁实现的, 而锁的效率通常较低. 有没有使用CAS机制实现的生产者-消费者?
+Disruptor就是这样.
+disruptor使用观察者模式, 主动将消息发送给消费者, 而不是等消费者从队列中取; 在无锁的情况下, 
+实现queue(环形, RingBuffer)的并发操作, 性能远高于BlockingQueue

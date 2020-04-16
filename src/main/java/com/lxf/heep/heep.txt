@@ -1,0 +1,3 @@
+1、windows命令窗口导出堆内存文件： JMap -dump:format=b,file=heep.hprof [PID]
+2、利用mat工具进行泄漏分析 
+相关参考资料位于谷歌浏览器标签中

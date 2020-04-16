@@ -1,0 +1,98 @@
+# Tomcat
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+        max-connections: 60
+    port: 8080
+    servlet:
+        context-path: /lxf
+
+
+# mysql
+spring:
+    # 环境 dev|test|prod/
+    profiles:
+        active: dev
+    servlet:
+        multipart:
+            max-file-size: 100MB
+            max-request-size: 100MB
+            enabled: true
+
+    mvc:
+        static-path-pattern: /**
+
+    redis:
+        database: 0
+        host: 127.0.0.1
+        port: 6379
+        #password: 	# 密码（默认为空）
+        timeout: 6000  # 连接超时时长（毫秒）
+
+    #自定义starter配置
+    spilit:
+        enabled: true
+        target: long,xiang,fu,chen,ting
+
+    #RabbitMq
+    rabbitmq:
+        #ip
+        host: 127.0.0.1
+        #port
+        port: 5672
+        #用户名
+        username: lxf
+        #密码
+        password: 123456
+        #虚拟主机
+        virtual-host: testVhost
+        #连接超时
+        connection-timeout: 15000
+        #消息对Exchange是否可达，给生产者确认
+        publisher-confirms: true
+        #消息对Queue不可达时，给生产者确认
+        publisher-returns: true
+        template:
+            #告诉mq，至少将消息路由到一个队列中，否则将消息return给生产者
+            mandatory: true
+        listener:
+            simple:
+                #每个Listener的并发消费者个数
+                concurrency: 10
+                #每个Listener的并发消费者最大个数
+                max-concurrency: 10
+                #预取数量
+                prefetch: 100
+                #手动签收
+                acknowledge-mode: manual
+
+
+
+framework:
+    redis:
+        open: false  # 是否开启redis缓存  true开启   false关闭
+    shiro:
+        redis: false # true表示shiro session存到redis里，需要开启redis，才会生效【分布式场景】
+
+logging:
+    level: info
+    level.com.framework: info
+    path: logs/
+    file: java_lean.log
+
+
+#mybatis配置
+mybatis:
+    #sql映射的xml文件的位置
+    mapper-locations: classpath*:mapper/*Mapper.xml
+    configuration:
+        #是否开启延迟加载
+        lazy-loading-enabled: true
+        #是否开启二级缓存
+        cache-enabled: false
+        #sql
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

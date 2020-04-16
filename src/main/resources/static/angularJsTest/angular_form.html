@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+    <!--<form>-->
+        <!--选中复选框，显示标题：-->
+        <!--<input type="checkbox" ng-model="myVar">-->
+        <!--<h1 ng-show="myVar">My header</h1>-->
+    <!--</form>-->
+
+    <!--<form>-->
+        <!--选择一个选项(单选):-->
+        <!--<input type="radio" value="dogs" ng-model="myVar">dogs-->
+        <!--<input type="radio" value="tuts" ng-model="myVar">tuts-->
+        <!--<input type="radio" value="cars" ng-model="myVar">cars-->
+    <!--</form>-->
+    <!--<div ng-switch="myVar">-->
+        <!--<div ng-switch-when="dogs">-->
+            <!--<h1>dogs</h1>-->
+            <!--<p>Welcome to world of dogs</p>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="tuts">-->
+            <!--<h1>tuts</h1>-->
+            <!--<p>Welcome to world of tuts</p>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="cars">-->
+            <!--<h1>cars</h1>-->
+            <!--<p>Welcome to world of cars</p>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+    <!--<form>-->
+        <!--选择一个选项（下拉选）:-->
+        <!--<select ng-model="myVar">-->
+            <!--<option value="">-->
+            <!--<option value="dogs">dogs-->
+            <!--<option value="tuts">tuts-->
+            <!--<option value="cars">cars-->
+        <!--</select>-->
+    <!--</form>-->
+    <!--<div ng-switch="myVar">-->
+        <!--<div ng-switch-when="dogs">-->
+            <!--<h1>dogs</h1>-->
+            <!--<p>Welcome to world of dogs</p>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="tuts">-->
+            <!--<h1>tuts</h1>-->
+            <!--<p>Welcome to world of tuts</p>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="cars">-->
+            <!--<h1>cars</h1>-->
+            <!--<p>Welcome to world of cars</p>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+
+    <form>
+        First name:<br>
+        <input type="text" ng-model="user.firstName"><br>
+        Last Name:<br>
+        <input type="text" ng-model="user.lastName">
+        <br><br>
+        <button ng-click="reset()">重置</button>
+        <p>form = {{user}}</p>
+        <p>form = {{master}}</p>
+    </form>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.master = {firstName:"John", lastName:"Doe"};
+        $scope.reset = function () {
+            $scope.user = angular.copy($scope.master);
+        };
+        $scope.reset();
+
+    });
+</script>
+
+</body>
+</html>

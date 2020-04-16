@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>angularJs指令</title>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-app="" ng-init="firstName='John';names=['zhangsan','zhaosi','wangwu']">
+        <!--ng-app  ng-init  ng-model简单演练-->
+        <p>请输入：</p>
+        <p><input type="text" ng-model="firstName"></p>
+        <p>您输入的为:{{firstName}}</p>
+        <!--ng-repeated演示-->
+        <ul>
+            <li ng-repeat="name in names">
+                {{name}}
+            </li>
+        </ul>
+    </div>
+
+    <!--自定义指令-->
+    <!--1、元素调用-->
+    <runoob-directive></runoob-directive>
+    <!--2、属性调用-->
+    <div runoob-directive></div>
+    <!--3、类属性调用-->
+    <div class="runoob-directive"></div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.directive("runoobDirective", function () {
+            return{
+                restrict:"C",
+                template:"<h1>自定义指令</h1>"
+            }
+        });
+    </script>
+</body>
+</html>

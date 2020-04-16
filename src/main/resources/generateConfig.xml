@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--利用MyBatis Generator里面的Xml文件格式，复制成为resource的xml文件，并进行修改-->
+<generatorConfiguration>
+    <!--找到MySQL驱动包的路径-->
+    <classPathEntry location="I:\maven\maven\reop1\mysql\mysql-connector-java\6.0.6\mysql-connector-java-6.0.6.jar" />
+
+    <!--配置连接MySQL数据库的信息-->
+    <context id="inputdb" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <commentGenerator type="com.lxf.utils.mybatisGenerator.MyCommentGenerator"></commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;allowMultiQueries=true&amp;serverTimezone=UTC&amp;useSSL=false&amp;nullNamePatternMatchesAll=true"
+                        userId="root"
+                        password="123456">
+            <property name="useInformationSchema" value="true"/>
+<!--            connectionURL="jdbc:mysql://47.104.224.187:3306/tp-system?useUnicode=true&amp;characterEncoding=UTF-8&amp;allowMultiQueries=true&amp;serverTimezone=UTC&amp;useSSL=false&amp;nullNamePatternMatchesAll=true"-->
+        </jdbcConnection>
+        <!--会将数据库里的int类型数据转换为Java里的bigDecimals -->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!--配置各个文件的相对路径和项目路径-->
+        <!--产生实体类，需要和App是同级的-->
+        <javaModelGenerator targetPackage="com.lxf.web.model" targetProject="I:\workspace-lxf\java_lean\src\main\java">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--映射文件，一定是在resources中的-->
+        <sqlMapGenerator targetPackage="mapper"  targetProject="I:\workspace-lxf\java_lean\src\main\resources">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+        <!--底层dao-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.lxf.web.dao" targetProject="I:\workspace-lxf\java_lean\src\main\java">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <!--将example类型设为false，否则实体类里面会多一个example的类exampleStudent -->
+        <!--表明为数据库的表明，生成实体类Student，会自动生成到entity的目录中-->
+<!--        <table schema="root" tableName="finance_order" domainObjectName="Order" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_order_course" domainObjectName="OrderCourse" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_order_course_package" domainObjectName="OrderCoursePackage" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_order_course_package_sub" domainObjectName="OrderCoursePackageSub" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+        <!--<table schema="root" tableName="finance_order_course_classtime" domainObjectName="OrderCourseClasstime" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_online_pay" domainObjectName="OnlinePay" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_off_pay" domainObjectName="OffPay" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_refund" domainObjectName="FinanceRefund" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_refund_record" domainObjectName="FinanceRefundRecord" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_frozen" domainObjectName="FinanceFrozen" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_agent_balance" domainObjectName="FinanceAgentBalance" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_agent_order" domainObjectName="FinanceAgentOrder" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_agent_off_pay" domainObjectName="FinanceAgentOffPay" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="sys_config_dict_agent" domainObjectName="SysConfigDictAgent" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_user_lean_recharge_order" domainObjectName="FinanceUserLeanRechargeOrder" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_user_lean_recharge_pay" domainObjectName="FinanceUserLeanRechargePay" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_user_balance" domainObjectName="FinanceUserBalance" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+<!--        <table schema="root" tableName="finance_user_balance" domainObjectName="FinanceUserBalance" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+        <!--<table schema="root" tableName="test_transaction" domainObjectName="TestTransaction" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+        <table schema="root" tableName="test_forupdate" domainObjectName="TestForupdate" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>
+
+
+    </context>
+</generatorConfiguration>

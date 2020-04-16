@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>angularJs之scope</title>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <input ng-model="name">
+        <h1>{{greeting}}</h1>
+        <h2>name1</h2>
+        <button ng-click="sayHello()">点我</button>
+
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller('myCtrl', function ($scope, $rootScope) {
+            $scope.name = "longxiangfu";
+            $scope.sayHello = function () {
+                $scope.greeting = 'Hello ' + $scope.name;
+            };
+            $rootScope.name1="lxf";
+        });
+    </script>
+</body>
+</html>

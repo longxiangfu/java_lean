@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>angularJs之model</title>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <style>
+        <!--ng-model基于它们的状态为html元素提供css类-->
+        input.ng-invalid{
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <!--&lt;!&ndash;双向数据绑定&ndash;&gt;-->
+    <!--<div ng-app="myApp" ng-controller="myCtrl">-->
+        <!--名字：<input ng-model="name">-->
+        <!--<h1>您输入了：{{name}}</h1>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;验证用户输入&ndash;&gt;-->
+    <!--<form ng-app="" name="myForm">-->
+        <!--Email:<input type="email" name="myAddress" ng-model="text1">-->
+        <!--<span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱</span>-->
+    <!--</form>-->
+
+    <!--为应用数据提供状态(invalid:不满足属性要求  valid：满足属性要求   dirty：值是否改变
+      pristine:控件值是否是原始的（未被修改过）  touched：用户是否和控件过 error)-->
+    <form ng-app="" name="app1_form" ng-init="myText='test@qq.com'">
+        Email:<input type="email" name="myAddress" ng-model="myText" required>
+        <h1>状态</h1>
+        {{app1_form.myAddress.$valid}}
+        {{app1_form.myAddress.$dirty}}
+        {{app1_form.myAddress.$touched}}
+        {{app1_form.myAddress.$pristine}}
+
+    </form>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller('myCtrl', function ($scope) {
+            $scope.name = "longxiangfu";
+        });
+    </script>
+</body>
+</html>

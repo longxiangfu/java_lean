@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="//cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<!--<div ng-app="myApp" ng-controller="personCtrl">-->
+    <!--&lt;!&ndash;uppercase&ndash;&gt;-->
+    <!--<p>姓名为 {{ lastName | uppercase }}</p>-->
+    <!--&lt;!&ndash;lowercase&ndash;&gt;-->
+    <!--<p>姓名为 {{ lastName | lowercase }}</p>-->
+
+    <!--&lt;!&ndash;currency:将结果转为货币格式&ndash;&gt;-->
+    <!--<input type="number" ng-model="quantity">-->
+    <!--<input type="number" ng-model="price">-->
+    <!--<p>总价={{(quantity * price) | currency}}</p>-->
+<!--</div>-->
+
+<!--<div ng-app="myApp" ng-controller="namesCtrl">-->
+    <!--<p>输入过滤filter：</p>-->
+    <!--<p><input type="text" ng-model="test"></p>-->
+    <!--<ul>-->
+        <!--<li ng-repeat="x in names | filter:test | orderBy:'country'">-->
+            <!--{{ (x.name | uppercase) + ', ' + x.country }}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<div ng-app="myApp1" ng-controller="myCtrl1">
+    <!--自定义过滤器：reverse-->
+    <input type="text" ng-model="msg">
+    <p>姓名：{{msg | reverse}}</p>
+</div>
+
+<script src="personController.js"></script>
+<!--<script src="angular_nameController.js"></script>-->
+<script>
+    var app = angular.module('myApp1', []);
+    app.controller('myCtrl1', function ($scope) {
+        $scope.msg="Runoob";
+    });
+    app.filter('reverse', function () {
+        return function (text) {
+            return text.split("").reverse().join("");
+
+        }
+    });
+</script>
+
+</body>
+</html>

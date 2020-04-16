@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>angularJs表达式</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="" ng-init="quantity=1;cost=5;firstName='John';lastName='Doe';
+    person={sex:'男',name:'longxiangfu'};points=[1,2,3,4,5]">
+    <!--表达式-->
+    <p>我的第一个表达式: {{ 5 + 5 }}</p>
+    <!--数字-->
+    <p>总价:{{quantity * cost}}</p>
+    <!--字符串-->
+    <p>姓名：{{firstName + "" + lastName}}</p>
+    <!--对象-->
+    <p>性别为:{{person.sex}}</p>
+    <!--数组-->
+    <p>第三个值为:{{points[2]}}</p>
+</div>
+
+</body>
+</html>

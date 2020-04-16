@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>angularJs之service</title>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <!--内置对象$location:获取当前页面的地址-->
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>当前页面的url:</p>
+        <h3>{{myUrl}}</h3>
+
+        <!--$http:请求-->
+        <p>欢迎信息</p>
+        <h1>{{myWelcome}}</h1>
+
+        <!--$timeout：超时-->
+        <p>两秒后显示信息</p>
+        <h1>{{myHeader}}</h1>
+
+        <!--$interval:频率-->
+        <p>现在的时间是：</p>
+        <h1>{{theTime}}</h1>
+
+        <!--自定义服务,并在过滤器中使用-->
+        <p>在获取数组[255, 251, 200]值时使用过滤器:</p>
+        <ul>
+            <li ng-repeat="x in counts">{{x | myFormat}}</li>
+        </ul>
+    </div>
+
+
+   <script>
+       var app = angular.module('myApp', []);
+       // app.controller('myCtrl', function ($scope, $location) {
+       //     $scope.myUrl = $location.absUrl();
+       // });
+
+       // app.controller('myCtrl', function ($scope, $http) {
+       //     $http.get("https://www.baidu.com/").then(function (response) {
+       //          $scope.myWelcome = response.data;
+       //     });
+       // });
+
+       // app.controller('myCtrl', function ($scope, $timeout) {
+       //     $scope.myHeader = "Hello World";
+       //     $timeout(function () {
+       //         $scope.myHeader = "How are you today";
+       //     }, 2000);
+       // });
+
+       // app.controller('myCtrl', function ($scope, $interval) {
+       //     $scope.theTime = new Date().toLocaleTimeString();
+       //     $interval(function () {
+       //         $scope.theTime = new Date().toLocaleTimeString();
+       //     }, 1000);
+       // });
+
+       app.service('hexafy', function () {
+           this.myFunc =  function (x) {
+               return x.toString(16);
+           }
+       });
+       app.filter('myFormat', ['hexafy', function (hexafy) {
+           return function (x) {
+               return hexafy.myFunc(x);
+
+           }
+
+       }]);
+       app.controller('myCtrl', function ($scope) {
+           $scope.counts = [255, 251, 200];
+
+       });
+   </script>
+</body>
+</html>
