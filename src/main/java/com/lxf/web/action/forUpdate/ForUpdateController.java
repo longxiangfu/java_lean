@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * mysql innnodb行锁
+ */
 @RestController
 @RequestMapping("/test/forupdate")
 public class ForUpdateController {
@@ -19,6 +22,7 @@ public class ForUpdateController {
      * 必须配合事务
      * 一个事务A中，select ... for update先将该条数据加行级锁，在本事务中，可以修改该条数据；
      * 另一个事务B走到select ... for update将会阻塞，直到事务A完成
+     * 注意：若字段值的重复率较高的话，mysql优化器可能将行级锁优化成表锁，所以select ... for update慎用，用乐观锁代替
      */
     @GetMapping
     public void test(){

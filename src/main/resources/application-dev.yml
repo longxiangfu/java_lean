@@ -65,3 +65,19 @@ AES:
 #    aop:
 #        #切换到CGLIB，默认false是jdk原生动态代理
 #        proxy-target-class: true
+
+
+xxl:
+    job:
+        admin:
+            #xxl-job管理地址
+            addresses: http://localhost:8080/xxl-job-admin
+        #xxl-job执行器
+        executor:
+            ip:
+            port: 9999
+            logpath: E:\tianpu\data\job
+            appname: plat-job
+            #日志文件清除天数
+            logretentiondays: 30
+        accessToken:
