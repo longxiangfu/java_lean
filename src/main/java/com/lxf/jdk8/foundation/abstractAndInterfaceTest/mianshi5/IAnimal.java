@@ -17,6 +17,7 @@ public interface IAnimal {
 
     String name = "beibei";
     static String age = "10";
+    String name1 = "";
 
 
     void eat();

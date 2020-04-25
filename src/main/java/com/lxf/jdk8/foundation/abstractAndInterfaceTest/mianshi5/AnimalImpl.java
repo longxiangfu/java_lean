@@ -12,7 +12,7 @@ public class AnimalImpl implements IAnimal {
         //static方法，可以通过接口直接调用（不能实现接口的静态方法）
         IAnimal.printName();
 
-        //实现了接口的成员属性和静态成员属性（继承是不能继承父类的属性的）
+        //实现了接口的成员属性和静态成员属性
         System.out.println(AnimalImpl.age);
 //        System.out.println(AnimalImpl.name);
         animal.eat();

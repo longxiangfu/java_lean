@@ -17,5 +17,9 @@ public class B extends A {
         System.out.print(myClass.y);//0
         //myClass是A类型引用，先调用A的m(),发现被重写了，于是调用重写的方法
         myClass.m();//B
+
+        B bClass = new B();
+        int x = bClass.x;
+        int y = bClass.y;
     }
 }

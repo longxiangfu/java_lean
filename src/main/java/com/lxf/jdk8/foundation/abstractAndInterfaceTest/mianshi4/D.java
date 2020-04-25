@@ -8,6 +8,5 @@ public class D extends B {
 
     @Override
     void b() {
-
     }
 }

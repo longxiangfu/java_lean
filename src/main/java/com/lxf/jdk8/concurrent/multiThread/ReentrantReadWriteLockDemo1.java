@@ -4,7 +4,10 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * 演示读写锁
+ * 演示读写锁:
+ * 1、读锁之间不互斥
+ * 2、读锁和写锁互斥
+ * 3、写锁之间互斥
  * @author longxiangfu
  *
  */
@@ -12,13 +15,13 @@ public class ReentrantReadWriteLockDemo1 {
 
 	public static void main(String[] args) {
 		final Queue q = new Queue();
-//		for(int i = 0; i < 3; i++) {
-//			new Thread() {
-//				public void run() {
-//					q.get();
-//				}
-//			}.start();
-//		}
+		for(int i = 0; i < 3; i++) {
+			new Thread() {
+				public void run() {
+					q.get();
+				}
+			}.start();
+		}
 //		Thread-0 be ready to read data!
 //		Thread-1 be ready to read data!
 //		Thread-2 be ready to read data!
@@ -50,22 +53,24 @@ class Queue{
 	private ReentrantReadWriteLock rw = new ReentrantReadWriteLock();
 	
 	public void get() {
+		ReentrantReadWriteLock.ReadLock readLock = rw.readLock();
 		try {
-			rw.readLock().lock();//上读锁，允许多个线程读取
+			readLock.lock();//上读锁，允许多个线程读取
 			System.out.println(Thread.currentThread().getName()+" be ready to read data!");
 			Thread.sleep(2000);
 			System.out.println(Thread.currentThread().getName()+" have read data:"+data);
 		}catch(InterruptedException e) {
 			e.printStackTrace();
 		}finally {
-			rw.readLock().unlock();//释放读锁
+			readLock.unlock();//释放读锁
 		}
 		
 	}
 	
 	public void put(Object data) {
+		ReentrantReadWriteLock.WriteLock writeLock = rw.writeLock();
 		try {
-			rw.writeLock().lock();//上写锁，只允许一个线程写
+			writeLock.lock();//上写锁，只允许一个线程写
 			System.out.println(Thread.currentThread().getName()+" be ready to write data!");
 			Thread.sleep(2000);
 			this.data = data;
@@ -73,7 +78,7 @@ class Queue{
 		}catch(InterruptedException e) {
 			e.printStackTrace();
 		}finally {
-			rw.writeLock().unlock();//释放写锁
+			writeLock.unlock();//释放写锁
 		}
 	}
 
