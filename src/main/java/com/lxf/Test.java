@@ -1,9 +1,11 @@
 package com.lxf;
 
+import java.util.Arrays;
+
 public class Test {
     public static void main(String[] args) {
         //程序调用System.gc()或不调用，垃圾回收器gc最终执行Object类的finalize()方法，最终决定是否回收
-        System.gc();
+//        System.gc();
 
         //集合的顶级接口
 //        Collection
@@ -12,7 +14,7 @@ public class Test {
 //        StringBuilder
 
         //
-        Integer a = Integer.valueOf(10);
+//        Integer a = Integer.valueOf(10);
 
         //包装类都是final修饰的
 //        Byte
@@ -25,8 +27,8 @@ public class Test {
 //        Double
 
         //测试String#Spilit
-        String str = "long,xiang,fu";
-        String[] split = str.split(",");
+//        String str = "long,xiang,fu";
+//        String[] split = str.split(",");
 
 
     }

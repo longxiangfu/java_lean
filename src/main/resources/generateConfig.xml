@@ -59,7 +59,8 @@
 <!--        <table schema="root" tableName="finance_user_balance" domainObjectName="FinanceUserBalance" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
 <!--        <table schema="root" tableName="finance_user_balance" domainObjectName="FinanceUserBalance" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
         <!--<table schema="root" tableName="test_transaction" domainObjectName="TestTransaction" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
-        <table schema="root" tableName="test_forupdate" domainObjectName="TestForupdate" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>
+        <!--<table schema="root" tableName="test_forupdate" domainObjectName="TestForupdate" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>-->
+        <table schema="root" tableName="test_lock" domainObjectName="TestLock" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"></table>
 
 
     </context>
