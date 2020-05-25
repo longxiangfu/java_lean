@@ -20,17 +20,29 @@ public class Cas2 {
         AtomicInteger count = new AtomicInteger(0);
         count.incrementAndGet();
         count.compareAndSet(10, 100);
-        AtomicReference<Person> reference = new AtomicReference<>();
+
+        Person initP = new Person();
+        initP.setId(1);
+        initP.setName("longxiangfu");
+        AtomicReference<Person> reference = new AtomicReference<>(initP);
+        Person newP = new Person();
+        newP.setId(2);
+        newP.setName("longxiangfu");
+//        reference.compareAndSet(initP, newP);
+        reference.compareAndSet(newP, newP);
+        System.out.println("id|name:" + reference.get().getId() + "|" + reference.get().getName());
+
+
 
         //2、cas造成ABA问题：一个线程把值+1，然后再-1，对另一个线程而言，值不变，这可能带来问题
         // 解决：使用AtomicStampedReference进行版本控制
-        AtomicStampedReference atomicStampedReference = new AtomicStampedReference<>(100, 1);
-        System.out.println("reference:" + atomicStampedReference.getReference());
-        System.out.println("stamp:" + atomicStampedReference.getStamp());
-        atomicStampedReference.compareAndSet(atomicStampedReference.getReference(), 200,
-                atomicStampedReference.getStamp(), atomicStampedReference.getStamp()+1);
-        System.out.println("reference:" + atomicStampedReference.getReference());
-        System.out.println("stamp:" + atomicStampedReference.getStamp());
+//        AtomicStampedReference atomicStampedReference = new AtomicStampedReference<>(100, 1);
+//        System.out.println("reference:" + atomicStampedReference.getReference());
+//        System.out.println("stamp:" + atomicStampedReference.getStamp());
+//        atomicStampedReference.compareAndSet(atomicStampedReference.getReference(), 200,
+//                atomicStampedReference.getStamp(), atomicStampedReference.getStamp()+1);
+//        System.out.println("reference:" + atomicStampedReference.getReference());
+//        System.out.println("stamp:" + atomicStampedReference.getStamp());
 
 
 
