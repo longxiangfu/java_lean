@@ -10,7 +10,7 @@ import lombok.Data;
  * @Version 1.0
  **/
 @Data
-@Builder
+//@Builder
 public class Person {
     private Integer id;
     private String name;

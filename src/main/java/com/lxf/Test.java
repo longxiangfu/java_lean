@@ -1,6 +1,7 @@
 package com.lxf;
 
-import java.util.Arrays;
+
+import com.lxf.jdk8.stream.sorted.Person;
 
 public class Test {
     public static void main(String[] args) {
@@ -30,6 +31,11 @@ public class Test {
 //        String str = "long,xiang,fu";
 //        String[] split = str.split(",");
 
+        //一键生成setter方法
+        Person person = new Person();
+        person.setId(0);
+        person.setName("");
+        person.setAge(0);
 
     }
 
