@@ -32,10 +32,10 @@ public class Test {
 //        String[] split = str.split(",");
 
         //一键生成setter方法
-        Person person = new Person();
-        person.setId(0);
-        person.setName("");
-        person.setAge(0);
+//        Person person = new Person();
+//        person.setId(0);
+//        person.setName("");
+//        person.setAge(0);
 
     }
 
