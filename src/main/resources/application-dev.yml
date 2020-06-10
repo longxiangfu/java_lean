@@ -31,6 +31,15 @@ spring:
                 wall:
                     config:
                         multi-statement-allow: true
+
+    jpa:
+        database: mysql
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+        open-in-view: true
+
 #    data:
 #        mongodb:
 #            host:
@@ -67,19 +76,19 @@ AES:
 #        proxy-target-class: true
 
 
-xxl:
-    job:
-        admin:
-            #xxl-job管理地址
-            addresses: http://localhost:8080/xxl-job-admin
-        #xxl-job执行器
-        executor:
-            ip:
-            port: 9999
-            logpath: E:\tianpu\data\job
-            appname: plat-job
-            #日志文件清除天数
-            logretentiondays: 30
-        accessToken:
+#xxl:
+#    job:
+#        admin:
+#            #xxl-job管理地址
+#            addresses: http://localhost:8080/xxl-job-admin
+#        #xxl-job执行器
+#        executor:
+#            ip:
+#            port: 9999
+#            logpath: E:\tianpu\data\job
+#            appname: plat-job
+#            #日志文件清除天数
+#            logretentiondays: 30
+#        accessToken:
 
 #我测试一下

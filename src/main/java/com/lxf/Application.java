@@ -6,11 +6,12 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@SpringBootApplication(scanBasePackages = "com")//exclude = SpilitAutoConfiguration.class 排除自动配置
+@SpringBootApplication(scanBasePackages = "com.lxf")//exclude = SpilitAutoConfiguration.class 排除自动配置
 @MapperScan(basePackages = "com.lxf.web.dao")
 @EnableTransactionManagement
 public class Application implements CommandLineRunner {
