@@ -76,11 +76,12 @@ framework:
     shiro:
         redis: false # true表示shiro session存到redis里，需要开启redis，才会生效【分布式场景】
 
-logging:
-    level: info
-    level.com.framework: info
-    path: logs/
-    file: java_lean.log
+#logging:
+#    level: info
+#    level.com.framework: info
+#    level.log4jdbc.log4j2: info
+#    path: logs/
+#    file: java_lean.log
 
 
 #mybatis配置

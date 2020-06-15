@@ -7,7 +7,6 @@ import org.hibernate.annotations.Target;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.common.reflection.XClass;
 import org.hibernate.annotations.common.reflection.XProperty;
-import org.hibernate.boot.MappingException;
 import org.hibernate.boot.jaxb.Origin;
 import org.hibernate.boot.jaxb.SourceType;
 import org.hibernate.cfg.annotations.HCANNHelper;
@@ -19,10 +18,11 @@ import javax.persistence.*;
 import java.util.*;
 
 public class PropertyContainer {
-    private static final CoreMessageLogger LOG = (CoreMessageLogger) Logger.getMessageLogger(CoreMessageLogger.class, PropertyContainer.class.getName());
+    private static final CoreMessageLogger LOG = (CoreMessageLogger) Logger.getMessageLogger(CoreMessageLogger.class, org.hibernate.cfg.PropertyContainer.class.getName());
     private final XClass xClass;
     private final XClass entityAtStake;
     private final AccessType classLevelAccessType;
+    //解决生成表字段和实体属性顺序不一致的问题
     private final LinkedHashMap<String, XProperty> persistentAttributeMap;
 
     PropertyContainer(XClass clazz, XClass entityAtStake, AccessType defaultClassLevelAccessType) {
@@ -95,7 +95,7 @@ public class PropertyContainer {
                 String name = xProperty.getName();
                 XProperty previous = (XProperty)persistentAttributesFromGetters.get(name);
                 if (previous != null) {
-                    throw new MappingException(LOG.ambiguousPropertyMethods(this.xClass.getName(), HCANNHelper.annotatedElementSignature(previous), HCANNHelper.annotatedElementSignature(xProperty)), new Origin(SourceType.ANNOTATION, this.xClass.getName()));
+                    throw new org.hibernate.boot.MappingException(LOG.ambiguousPropertyMethods(this.xClass.getName(), HCANNHelper.annotatedElementSignature(previous), HCANNHelper.annotatedElementSignature(xProperty)), new Origin(SourceType.ANNOTATION, this.xClass.getName()));
                 }
 
                 persistentAttributeMap.put(name, xProperty);
@@ -125,7 +125,7 @@ public class PropertyContainer {
                 String name = getter.getName();
                 XProperty previous = (XProperty)persistentAttributesFromGetters.get(name);
                 if (previous != null) {
-                    throw new MappingException(LOG.ambiguousPropertyMethods(this.xClass.getName(), HCANNHelper.annotatedElementSignature(previous), HCANNHelper.annotatedElementSignature(getter)), new Origin(SourceType.ANNOTATION, this.xClass.getName()));
+                    throw new org.hibernate.boot.MappingException(LOG.ambiguousPropertyMethods(this.xClass.getName(), HCANNHelper.annotatedElementSignature(previous), HCANNHelper.annotatedElementSignature(getter)), new Origin(SourceType.ANNOTATION, this.xClass.getName()));
                 }
 
                 if (!persistentAttributeMap.containsKey(name)) {
