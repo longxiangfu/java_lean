@@ -8,7 +8,7 @@ import redis.clients.jedis.Pipeline;
 import java.util.List;
 import java.util.Map;
 
-public class RedisUtil {
+public class JedisUtil {
     private static JedisPool pool = SpringContextUtil.getBean(JedisPool.class);
 
     public static void returnResource(JedisPool pool, Jedis redis) {

@@ -1,6 +1,6 @@
 //package com.lxf.redis;
 //
-//import com.lxf.utils.RedisUtil;
+//import com.lxf.utils.JedisUtil;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 //import redis.clients.jedis.Pipeline;
@@ -14,12 +14,12 @@
 //    public static void main(String[] args) {
 //        long start = System.currentTimeMillis();
 //        for(int i = 0; i < 10000; i++){
-//            RedisUtil.set("key_" +i, "value_" + i + 1);
+//            JedisUtil.set("key_" +i, "value_" + i + 1);
 //        }
 //        long end = System.currentTimeMillis();
 //        logger.info("普通耗时：" + (end - start)/1000 + "s");
 //
-//        Pipeline pipeline = RedisUtil.getPipeLined();
+//        Pipeline pipeline = JedisUtil.getPipeLined();
 //        long start1 = System.currentTimeMillis();
 //        for(int i = 0; i < 10000; i++){
 //            pipeline.set("key_" +i, "value_" + i + 1);
