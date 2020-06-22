@@ -24,13 +24,6 @@ spring:
     mvc:
         static-path-pattern: /**
 
-    redis:
-        database: 0
-        host: 127.0.0.1
-        port: 6379
-        #password: 	# 密码（默认为空）
-        timeout: 6000  # 连接超时时长（毫秒）
-
     #自定义starter配置
     spilit:
         enabled: true

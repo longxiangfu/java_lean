@@ -93,6 +93,18 @@ spring:
 #            max-idle: 10      # 连接池中的最大空闲连接
 #            min-idle: 5
 
+    #RedisTemplate配置
+    redis:
+        database: 0
+        #超时时间
+        timeout: 2000
+        # Redis服务器地址
+        host: 127.0.0.1
+        # Redis服务器连接端口
+        port: 6379
+        # Redis服务器连接密码（默认为空）
+        #password: root
+
 AES:
     KEY: 1234567890abcdef
 
@@ -120,25 +132,3 @@ AES:
 #            #日志文件清除天数
 #            logretentiondays: 30
 #        accessToken:
-
-
-#RedisTemplate配置
-    redis:
-        database: 0
-            #超时时间
-            timeout: 2000
-            # Redis服务器地址
-            host: 127.0.0.1
-            # Redis服务器连接端口
-            port: 6379
-            # Redis服务器连接密码（默认为空）
-            #password: root
-            pool:
-                # 连接池最大连接数（使用负值表示没有限制）
-                max-active: 8
-                # 连接池最大阻塞等待时间（使用负值表示没有限制）
-                max-wait: -1
-                # 连接池中的最大空闲连接
-                max-idle: 8
-                # 连接池中的最小空闲连接
-                min-idle: 0

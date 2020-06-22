@@ -1,26 +1,33 @@
 package com.lxf.redis.redisTemplate;
 
 import com.lxf.utils.RedisTemplate.RedisTemplateUtil;
+import com.lxf.utils.SpringContextUtil;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.Iterator;
 import java.util.Set;
 
+@Service
 public class Test {
 
-    @Resource
-    static RedisTemplateUtil redisTemplateUtil;
-
-
     public static void main(String[] args) {
-        keys("lxf*");
+        Test test = new Test();
+//        set("lxf", "123456");
+        test.keys("lxf*");
 
+    }
+
+    private void set(String key, String value) {
+        RedisTemplateUtil redisTemplateUtil = SpringContextUtil.getBean(RedisTemplateUtil.class);
+        redisTemplateUtil.set(key, value);
     }
 
 
     //模糊查询keys
-    private static Set<String> keys(String keys) {
+    private Set<String> keys(String keys) {
+        RedisTemplateUtil redisTemplateUtil = SpringContextUtil.getBean(RedisTemplateUtil.class);
         Set<String> set = redisTemplateUtil.keys("lxf*");
         if (!CollectionUtils.isEmpty(set)) {
             Iterator<String> iterator = set.iterator();

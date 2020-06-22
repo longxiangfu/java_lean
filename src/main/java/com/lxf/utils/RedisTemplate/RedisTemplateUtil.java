@@ -36,7 +36,7 @@ public class RedisTemplateUtil {
         try {
             return redisTemplate.keys(keys);
         } catch (Exception e) {
-            logger.error(e.toString());
+            logger.error(String.valueOf(e));
             throw new RuntimeException("模糊查询keys异常。" + e.toString());
         }
     }
