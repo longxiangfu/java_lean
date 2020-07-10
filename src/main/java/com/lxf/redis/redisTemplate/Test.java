@@ -2,14 +2,16 @@ package com.lxf.redis.redisTemplate;
 
 import com.lxf.utils.RedisTemplate.RedisTemplateUtil;
 import com.lxf.utils.SpringContextUtil;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.annotation.Resource;
 import java.util.Iterator;
 import java.util.Set;
 
-@Service
+@Controller
+@RequestMapping("/redis")
 public class Test {
 
     public static void main(String[] args) {
@@ -26,6 +28,7 @@ public class Test {
 
 
     //模糊查询keys
+    @GetMapping("/keys")
     private Set<String> keys(String keys) {
         RedisTemplateUtil redisTemplateUtil = SpringContextUtil.getBean(RedisTemplateUtil.class);
         Set<String> set = redisTemplateUtil.keys("lxf*");

@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "tb_user")
-@DynamicUpdate
+@DynamicUpdate//批量更新
 @org.hibernate.annotations.Table(appliesTo = "tb_user", comment = "用户表")
 public class User {
 
