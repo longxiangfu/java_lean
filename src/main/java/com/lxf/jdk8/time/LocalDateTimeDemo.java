@@ -14,6 +14,7 @@ public class LocalDateTimeDemo {
     public static void main(String[] args) {
         //获取当前年月日时分秒
         LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println(localDateTime);
         System.out.println(localDateTime.plus(100, ChronoUnit.DAYS));
         //通过LocalDate和LocalTime构建
         LocalDateTime localDateTime1 = LocalDateTime.of(LocalDate.now(), LocalTime.now());

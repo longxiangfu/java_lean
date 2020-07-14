@@ -12,6 +12,7 @@ public class LocalTimeDemo {
     public static void main(String[] args) {
         //获取当前时间
         LocalTime localTime = LocalTime.now();
+        System.out.println(localTime);
         //构建时间
         LocalTime localTime1 = LocalTime.of(12, 15, 30);
         //获取当前时间，不包含毫秒数
