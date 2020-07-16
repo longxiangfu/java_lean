@@ -1,4 +1,4 @@
-//package com.lxf.redis;
+//package com.lxf.web.action.redis;
 //
 //import com.lxf.utils.JedisUtil;
 //import org.slf4j.Logger;

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * RedisTemplateUtil工具类
  */
 @Component
-public class RedisTemplateUtil {
+public class RedisTemplateUtil<T> {
     private static Logger logger = LoggerFactory.getLogger(RedisTemplateUtil.class);
 
     @Resource
@@ -25,7 +25,7 @@ public class RedisTemplateUtil {
 
 
     /**
-     * 模糊查询keys *
+     * 模糊查询keys
      * @param keys
      * @return
      */
@@ -263,7 +263,7 @@ public class RedisTemplateUtil {
             return redisTemplate.opsForHash().entries(key);
         }catch (Exception e){
             logger.error(e.toString());
-            throw new RuntimeException("获取hashKey对应的所有键值异常");
+            throw new RuntimeException("获取hashKey对应的所有键值异常。" + e.toString());
         }
 
     }
@@ -275,7 +275,7 @@ public class RedisTemplateUtil {
      * @param map 对应多个键值
      * @return true 成功 false 失败
      */
-    public boolean hmset(String key, Map<String, Object> map) {
+    public boolean hmset(String key, Map<String, T> map) {
         if (StringUtils.isEmpty(key) || map == null) {
             throw new RuntimeException("HashSet时，key或map不能为空");
         }
@@ -329,7 +329,7 @@ public class RedisTemplateUtil {
             return true;
         } catch (Exception e) {
             logger.error(e.toString());
-            throw new RuntimeException("向一张hash表中放入数据时异常");
+            throw new RuntimeException("向一张hash表中放入数据时异常。" + e.toString());
         }
     }
 
@@ -354,7 +354,7 @@ public class RedisTemplateUtil {
             return true;
         } catch (Exception e) {
             logger.error(e.toString());
-            throw new RuntimeException("向一张hash表中放入数据时，key或item不能为空。" + e.toString());
+            throw new RuntimeException("向一张hash表中放入数据时。" + e.toString());
         }
     }
 
@@ -372,6 +372,7 @@ public class RedisTemplateUtil {
             redisTemplate.opsForHash().delete(key, item);
         }catch (Exception e){
             logger.error(e.toString());
+            throw new RuntimeException("删除hash表中的值时异常：" + e.toString());
         }
     }
 
@@ -618,7 +619,7 @@ public class RedisTemplateUtil {
     }
 
     /**
-     * 将list放入缓存
+     * 将缓存放入缓存
      *
      * @param key   键
      * @param value 值
