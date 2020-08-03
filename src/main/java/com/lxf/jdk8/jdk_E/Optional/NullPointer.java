@@ -12,9 +12,9 @@ public class NullPointer {
 
 	public static void main(String[] args) {
 		Optional.of(new Outer())
-		.map(Outer::getNested)//若Outer不为null,则返回Nested
-		.map(Nested::getInner)//若Nested不为null,则返回Inner
-		.map(Inner::getFoo)//若Inner不为null,则返回foo
+//		.map(Outer::getNested)//若Outer不为null,则返回Nested
+//		.map(Nested::getInner)//若Nested不为null,则返回Inner
+//		.map(Inner::getFoo)//若Inner不为null,则返回foo
 		.ifPresent(str -> System.out.println(str));
 		
 

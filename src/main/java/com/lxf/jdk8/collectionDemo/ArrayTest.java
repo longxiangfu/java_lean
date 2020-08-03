@@ -9,7 +9,7 @@ public class ArrayTest {
         int[] arr2 = new int[]{1, 2, 3, 4};
         int[] arr3 = {1, 2, 3};
         Arrays.stream(arr).forEach(value -> System.out.println(value));
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr));//[1, 10, 10, 4, 5]
 
         //数组复制
 //        int[] arr2Copy = Arrays.copyOf(arr2, arr2.length);

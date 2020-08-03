@@ -1,6 +1,8 @@
 package com.lxf.jdk8.jdk_E.Optional;
 
 
+import java.util.Optional;
+
 public class Example {
 	
 	/*
@@ -20,10 +22,10 @@ public class Example {
 //	}else {
 //		proxiedMap.put(createNewKey(), value);
 //	}//原始的方式
-	
+//
 //	final Optional<Key> key = mapper.getConverters().decode(keyClass, dbObject, mappedField);
 //	proxiedMap.put(key.orElse(createNewKey()), value);//比较优雅的方式
-	
+//
 //	final Optional<Key> key = mapper.getConverters().decode(keyClass, dbObject, mappedField);
 //	proxiedMap.put(key.orElseGet(() -> createNewKey()), value);//最优雅的方式，和上面的情况一样，
 																//只不过可以调用Supplier接口的实现，

@@ -85,10 +85,10 @@ public class HashMapDemo {
 //        map1.put(null, null);
 
     //HashMap允许空键值，Hashtable不允许
-        HashMap map = new HashMap();
-        map.put(null, null);
-        Hashtable table = new Hashtable();
-        table.put(null, null);//运行抛空指针(Hashtable的key和value都不能为null)
+//        HashMap map = new HashMap();
+//        map.put(null, null);
+//        Hashtable table = new Hashtable();
+//        table.put(null, null);//运行抛空指针(Hashtable的key和value都不能为null)
 
         //HashSet
 //        HashSet hashSet = new HashSet();
@@ -129,6 +129,15 @@ public class HashMapDemo {
 //        key:5, value:5
 //        key:6, value:6
 //        key:4, value:4
+
+        //map输出格式
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "a");
+        map.put(2, "b");
+        map.put(3, "c");
+        map.put(4, "d");
+        map.put(5, "e");
+        System.out.println(map.toString());//{1=a, 2=b, 3=c, 4=d, 5=e}
 
 
 

@@ -1,16 +1,18 @@
 package com.lxf.jdk8.collectionDemo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ArrayListDemo {
     public static void main(String[] args) {
-//        List<Integer> list = new ArrayList<>();
-//        list.add(1);
-//        list.add(2);
-//        list.add(3);
-//
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        System.out.println(Arrays.toString(list.toArray()));//[1, 2, 3]
+
 //        //替换
 //        list.replaceAll(e -> e+10);
 //        list.stream().forEach(e ->{
@@ -76,31 +78,31 @@ public class ArrayListDemo {
 
         //ArrayList和LinkedList从中间插入，比较时间
         //从中间插入时间差不多，ArrayList需要复制新元素之后的所有元素；LinkedList需要从链前或链后找到新元素插入的位置
-        List<Integer> arrayList = new ArrayList<>();
-        arrayList.add(1);
-        arrayList.add(2);
-        arrayList.add(3);
-        arrayList.add(4);
-        arrayList.add(5);
-        arrayList.add(6);
-        arrayList.add(7);
-        arrayList.add(8);
-        arrayList.add(9);
-        arrayList.add(5, 10);
-
-        List<Integer> linkedList = new LinkedList<>();
-        linkedList.add(1);
-        linkedList.add(2);
-        linkedList.add(3);
-        linkedList.add(4);
-        linkedList.add(5);
-        linkedList.add(6);
-        linkedList.add(7);
-        linkedList.add(8);
-        linkedList.add(9);
-        linkedList.add(null);//List可以有多个null值
-        linkedList.add(null);
-        linkedList.add(5, 10);
+//        List<Integer> arrayList = new ArrayList<>();
+//        arrayList.add(1);
+//        arrayList.add(2);
+//        arrayList.add(3);
+//        arrayList.add(4);
+//        arrayList.add(5);
+//        arrayList.add(6);
+//        arrayList.add(7);
+//        arrayList.add(8);
+//        arrayList.add(9);
+//        arrayList.add(5, 10);
+//
+//        List<Integer> linkedList = new LinkedList<>();
+//        linkedList.add(1);
+//        linkedList.add(2);
+//        linkedList.add(3);
+//        linkedList.add(4);
+//        linkedList.add(5);
+//        linkedList.add(6);
+//        linkedList.add(7);
+//        linkedList.add(8);
+//        linkedList.add(9);
+//        linkedList.add(null);//List可以有多个null值
+//        linkedList.add(null);
+//        linkedList.add(5, 10);
 
 
     }
