@@ -2,11 +2,11 @@ package com.lxf.web.dao;
 
 import com.lxf.web.model.TestTransaction;
 import com.lxf.web.model.TestTransactionExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-//@Mapper
 public interface TestTransactionMapper {
     long countByExample(TestTransactionExample example);
 

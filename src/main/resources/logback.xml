@@ -91,6 +91,7 @@
     <logger name="jdbc.audit" level="OFF"/>
     <logger name="jdbc.sqltiming" level="INFO"/>
     <logger name="jdbc.sqlonly" level="OFF"/>
+    <logger name="com.lzn.shardingsphere.dao" level="debug"/>
 
     <!--设置日志打印级别为INFO-->
     <root level="INFO">
