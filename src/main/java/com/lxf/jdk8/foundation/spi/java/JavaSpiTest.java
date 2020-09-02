@@ -1,4 +1,4 @@
-package com.lxf.jdk8.foundation.spi;
+package com.lxf.jdk8.foundation.spi.java;
 
 import java.util.Iterator;
 import java.util.ServiceLoader;
