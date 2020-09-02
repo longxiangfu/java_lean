@@ -2,6 +2,9 @@ package com.lxf.jdk8.foundation.spi.dubbo;
 
 import org.apache.dubbo.common.extension.ExtensionLoader;
 
+/**
+ * 通过扩展类名称类加载扩展类
+ */
 public class Test {
     public static void main(String[] args) {
         ExtensionLoader<Order> loader = ExtensionLoader.getExtensionLoader(Order.class);
