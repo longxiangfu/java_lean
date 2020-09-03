@@ -1,0 +1,2 @@
+aliPay=com.lxf.jdk8.foundation.spi.dubbo.AliPayOrder
+wechatPay=com.lxf.jdk8.foundation.spi.dubbo.WechatOrder
