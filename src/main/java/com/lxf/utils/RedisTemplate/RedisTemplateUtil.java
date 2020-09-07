@@ -2,12 +2,15 @@ package com.lxf.utils.RedisTemplate;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.redis.core.DefaultTypedTuple;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -745,5 +748,40 @@ public class RedisTemplateUtil<T> {
             throw new RuntimeException("移除N个值为value时异常。" + e.toString());
         }
     }
+
+
+
+    //-------------------------ZSet------------------------------------//
+
+    public Boolean zsSet(String key, Object value) {
+        if (StringUtils.isEmpty(key)) {
+            throw new RuntimeException("zSet add时，key不能空");
+        }
+        try {
+            return redisTemplate.opsForZSet().add(key, value, 1d);
+        } catch (Exception e) {
+            logger.error("发生异常", e);
+            throw new RuntimeException("zSet add时异常。" + e);
+        }
+    }
+
+
+    public Long zsSetMore(String key, Object... values) {
+        if (StringUtils.isEmpty(key)) {
+            throw new RuntimeException("zsSetMore add时，key不能空");
+        }
+        try {
+            Set<ZSetOperations.TypedTuple<Object>> tuples = new HashSet<>();
+            for (Object value : values) {
+                DefaultTypedTuple<Object> tuple = new DefaultTypedTuple<>(value, 1d);
+                tuples.add(tuple);
+            }
+            return redisTemplate.opsForZSet().add(key, tuples);
+        } catch (Exception e) {
+            logger.error("发生异常", e);
+            throw new RuntimeException("zsSetMore add时异常。" + e);
+        }
+    }
+
 
 }

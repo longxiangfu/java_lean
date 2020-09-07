@@ -10,6 +10,7 @@ public class WechatOrder implements GoodsOrder{
 
     @Override
     public String payWay(URL url) {
+        System.out.println("pay 微信支付");
         return "pay 微信支付";
     }
 }
