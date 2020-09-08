@@ -1,4 +1,5 @@
 aliPay=com.lxf.jdk8.foundation.spi.dubbo.AliPayOrder
 wechatPay=com.lxf.jdk8.foundation.spi.dubbo.WechatOrder
-wrapper2=com.lxf.jdk8.foundation.spi.dubbo.wrapper.OrderWrapper2
-wrapper=com.lxf.jdk8.foundation.spi.dubbo.wrapper.OrderWrapper
+card=com.lxf.jdk8.foundation.spi.dubbo.activate.CardOrder
+cash=com.lxf.jdk8.foundation.spi.dubbo.activate.CashOrder
+coupon=com.lxf.jdk8.foundation.spi.dubbo.activate.CouponOrder

@@ -1,7 +1,9 @@
 package com.lxf.jdk8.foundation.spi.dubbo;
 
 import org.apache.dubbo.common.URL;
+import org.apache.dubbo.common.extension.Activate;
 
+@Activate(group = "online", order = 1)
 public class WechatOrder implements GoodsOrder{
     @Override
     public String getPayWay() {

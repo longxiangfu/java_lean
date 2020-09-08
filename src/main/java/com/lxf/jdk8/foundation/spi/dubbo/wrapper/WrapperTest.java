@@ -6,6 +6,9 @@ import org.apache.dubbo.common.extension.ExtensionLoader;
 
 import java.util.Set;
 
+/**
+ * 对扩展类的增强
+ */
 public class WrapperTest {
     public static void main(String[] args) {
         ExtensionLoader<GoodsOrder> loader = ExtensionLoader.getExtensionLoader(GoodsOrder.class);

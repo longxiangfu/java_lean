@@ -1,2 +1,4 @@
 #dubbo spi文件删掉的
 adaptive=com.lxf.jdk8.foundation.spi.dubbo.adaptive.AdaptiveOrder
+wrapper2=com.lxf.jdk8.foundation.spi.dubbo.wrapper.OrderWrapper2
+wrapper=com.lxf.jdk8.foundation.spi.dubbo.wrapper.OrderWrapper
