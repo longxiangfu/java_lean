@@ -1,4 +1,4 @@
-import com.lxf.jdk8.foundation.spi.dubbo.GoodsOrder;
+import com.lxf.jdk.foundation.spi.dubbo.GoodsOrder;
 import org.apache.dubbo.common.extension.ExtensionLoader;
 import org.junit.Test;
 import org.junit.runner.RunWith;

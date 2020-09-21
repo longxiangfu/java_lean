@@ -1,8 +1,6 @@
 package com.lxf;
 
 
-import com.lxf.jdk8.stream.sorted.Person;
-
 public class Test {
     public static void main(String[] args) {
         //程序调用System.gc()或不调用，垃圾回收器gc最终执行Object类的finalize()方法，最终决定是否回收
