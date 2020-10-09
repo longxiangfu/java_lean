@@ -12,6 +12,11 @@ import java.io.Serializable;
 public class WangWu implements Cloneable, Serializable {
     private Integer sex;
 
+    /**
+     * 克隆
+     * @return
+     * @throws CloneNotSupportedException
+     */
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }

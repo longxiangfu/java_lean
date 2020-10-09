@@ -7,6 +7,7 @@ package com.lxf.jdk.foundation.fuZi;
  */
 public class Test {
     public static void main(String[] args) {
+        //测试类的实例化顺序
         Dog dog = new Dog();
     }
 }
