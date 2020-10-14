@@ -8,4 +8,8 @@ public class Animal {
         System.out.println("父构造器");
     }
 
+    public Animal(String name){
+        this.name = name;
+    }
+
 }
