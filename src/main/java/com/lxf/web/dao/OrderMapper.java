@@ -3,8 +3,13 @@
 //import com.lxf.web.model.Order;
 //import com.lxf.web.model.OrderExample;
 //import java.util.List;
-//import org.apache.ibatis.annotations.Param;
 //
+//import org.apache.ibatis.annotations.Mapper;
+//import org.apache.ibatis.annotations.Param;
+//import org.springframework.stereotype.Component;
+//
+//@Mapper
+//@Component
 //public interface OrderMapper {
 //    long countByExample(OrderExample example);
 //

@@ -258,12 +258,12 @@
             <version>1.16</version>
         </dependency>
 
-        <!--&lt;!&ndash;sharding&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.shardingsphere</groupId>-->
-            <!--<artifactId>sharding-jdbc-spring-boot-starter</artifactId>-->
-            <!--<version>4.0.0-RC2</version>-->
-        <!--</dependency>-->
+        <!--sharding-jdbc-->
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+            <version>4.0.0-RC2</version>
+        </dependency>
 
         <!--forest http客户端-->
         <dependency>

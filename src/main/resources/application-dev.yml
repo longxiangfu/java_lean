@@ -50,23 +50,23 @@ spring:
                     config:
                         multi-statement-allow: true
 
-    jpa:
-        database: mysql
-        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-        hibernate:
-            ddl-auto: update
-        open-in-view: true
-        properties:
-            hibernate:
-                #配置sql输出
-                show_sql: true
-                format_sql: true
-                use_sql_comments: true
-                #配置jpa批量操作
-                jdbc.batch_size: 500
-                jdbc.batch_versioned_data: true
-                order_inserts: true
-                order_updates: true
+#    jpa:
+#        database: mysql
+#        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#        hibernate:
+#            ddl-auto: update
+#        open-in-view: true
+#        properties:
+#            hibernate:
+#                #配置sql输出
+#                show_sql: true
+#                format_sql: true
+#                use_sql_comments: true
+#                #配置jpa批量操作
+#                jdbc.batch_size: 500
+#                jdbc.batch_versioned_data: true
+#                order_inserts: true
+#                order_updates: true
 
 #mongodb配置
 #    data:
@@ -93,20 +93,20 @@ spring:
 #            max-idle: 10      # 连接池中的最大空闲连接
 #            min-idle: 5
 
-    #RedisTemplate配置
-    redis:
-        database: 0
-        #超时时间
-        timeout: 2000
-        # Redis服务器地址
-        host: 127.0.0.1
-        # Redis服务器连接端口
-        port: 6379
-        # Redis服务器连接密码（默认为空）
-        #password: root
+#    #RedisTemplate配置
+#    redis:
+#        database: 0
+#        #超时时间
+#        timeout: 2000
+#        # Redis服务器地址
+#        host: 127.0.0.1
+#        # Redis服务器连接端口
+#        port: 6379
+#        # Redis服务器连接密码（默认为空）
+#        #password: root
 
-AES:
-    KEY: 1234567890abcdef
+#AES:
+#    KEY: 1234567890abcdef
 
 
 #condition:
@@ -134,4 +134,49 @@ AES:
 #        accessToken:
 
 
-
+##shardingshpere配置
+#    shardingsphere:
+#        datasource:
+#            names: db0,db1
+#            db0:
+#                type: com.zaxxer.hikari.HikariDataSource
+#                driver-class-name: com.mysql.cj.jdbc.Driver
+#                jdbc-url: jdbc:mysql://localhost:3306/db0?characterEncoding=utf8&useSSL=false
+#                username: root
+#                password: 123456
+#            db1:
+#                type: com.zaxxer.hikari.HikariDataSource
+#                driver-class-name: com.mysql.cj.jdbc.Driver
+#                jdbc-url: jdbc:mysql://localhost:3306/db0?characterEncoding=utf8&useSSL=false
+#                username: root
+#                password: 123456
+#
+#        # 分库策略 根据id取模确定数据进哪个数据库
+#        sharding:
+#            default-database-strategy:
+#                inline:
+#                    sharding-column: member_id
+#                    algorithm-expression: db$->{member_id % 2}
+#
+#            # 分表策略
+#            # 节点 db0.t_order_0,db0.t_order_1,db0.t_order_2,db1.t_order_0,db1.t_order_1,db1.t_order_2
+#            tables:
+#                t_order:
+#                    actual-data-nodes: db$->{0..1}.t_order_$->{0..2}
+#                # 分表字段member_id
+#                    table-strategy:
+#                        inline:
+#                            sharding-column: member_id
+#                            # 分表策略 根据member_id取模,确定数据最终落在那个表中
+#                            algorithm-expression: t_order_$->{member_id % 3}
+#
+#                    # 使用SNOWFLAKE算法生成主键
+#                    key-generator:
+#                        column: id
+#                        type: SNOWFLAKE
+#
+#
+#        # 拓展属性配置
+#        props:
+#            sql:
+#                show: true # 打印 SQL
