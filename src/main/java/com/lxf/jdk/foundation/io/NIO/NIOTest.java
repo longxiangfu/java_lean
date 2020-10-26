@@ -16,8 +16,10 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * NIO示例：同步非阻塞
+ * NIO示例：同步非阻塞  java程序亲自操作读写，不用等待写完或读完就立刻返回
  * 客户端、ServerSocketChannel、SelectionKey、Selector、服务端
+ * key和channel绑定并注册到selector,然后一直循环key的Set
+ * 网络io
  */
 public class NIOTest {
     public static void main(String[] args) {

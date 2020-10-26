@@ -59,7 +59,7 @@ public class BigFileReader {
     }
 
     /**
-     * 按照找给定的开始位置和分片的大小，计算所有的开始位置和结束位置
+     * 按照给定的开始位置和分片的大小，计算所有的开始位置和结束位置
      * @param start 开始位置
      * @param size 分片大小
      * @throws IOException

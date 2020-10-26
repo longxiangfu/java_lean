@@ -1,3 +1,3 @@
-两种方式读取超大文件
+两种方式读取超大文件（磁盘IO）
 1、BufferReader
 2、NIO的零拷贝,具体实现是MapperedByteBuffer

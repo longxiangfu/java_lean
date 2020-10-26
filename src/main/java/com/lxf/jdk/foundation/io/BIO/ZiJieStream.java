@@ -4,6 +4,8 @@ import java.io.*;
 
 /**
  * 字节流
+ * 同步阻塞
+ * 磁盘io
  */
 public class ZiJieStream {
     public static void main(String[] args) throws IOException {

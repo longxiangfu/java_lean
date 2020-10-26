@@ -4,8 +4,8 @@ import java.nio.charset.StandardCharsets;
 
 public class TestBigFileRead {
     public static void main(String[] args) {
-        String smallFilePath = "D:\\test.txt";
-        BigFileReader.Builder builder = new BigFileReader.Builder(smallFilePath);
+        String bigFilePath = "D:\\test.txt";
+        BigFileReader.Builder builder = new BigFileReader.Builder(bigFilePath);
         BigFileReader bigFileReader = builder
                 .threadPoolSize(10)
                 .charset(StandardCharsets.UTF_8)
