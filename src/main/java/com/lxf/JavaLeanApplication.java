@@ -8,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.annotation.Resource;
 
-@SpringBootApplication(scanBasePackages = "com.lxf")//exclude = SpilitAutoConfiguration.class 排除自动配置
+@SpringBootApplication(scanBasePackages = "com")//exclude = SpilitAutoConfiguration.class 排除自动配置
 @MapperScan(basePackages = "com.lxf.web.dao")
 @EnableTransactionManagement
 @ForestScan(basePackages = "com.lxf.interfaces")
