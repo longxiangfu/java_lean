@@ -18,8 +18,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 异步非阻塞：java程序只发起读写操作，正真的读写依靠操作系统来进行，并且读写操作也是异步的
- * 基于事件通知
+ * 异步非阻塞：底层基于异步IO模型
  * 网络io
  */
 public class AIOTest {

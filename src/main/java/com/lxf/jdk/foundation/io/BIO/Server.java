@@ -3,6 +3,10 @@ package com.lxf.jdk.foundation.io.BIO;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * BIO
+ * 同步阻塞，基层基于阻塞IO模型
+ */
 public class Server {
 
     final static int PORT = 8765;

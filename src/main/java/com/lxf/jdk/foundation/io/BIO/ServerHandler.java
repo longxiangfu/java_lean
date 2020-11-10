@@ -23,7 +23,7 @@ public class ServerHandler implements Runnable {
             out = new PrintWriter(this.socket.getOutputStream(), true);
             String body;
             while(true){
-                body = in.readLine();
+                body = in.readLine();//同步阻塞，基于底层阻塞IO模型
                 if(body == null) break;
                 System.out.println("Server:" + body);
                 out.println("Server response");

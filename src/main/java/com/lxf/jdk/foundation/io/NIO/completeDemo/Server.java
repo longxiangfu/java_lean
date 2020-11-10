@@ -14,7 +14,7 @@ public class Server implements Runnable {
     //1 多路复用器（管理所有的通道）
     private Selector seletor;
     //2 建立读缓冲区
-    private ByteBuffer readBuf = ByteBuffer.allocate(5);
+    private ByteBuffer readBuf = ByteBuffer.allocate(1024);
 
 
     public Server(int port){
@@ -44,7 +44,8 @@ public class Server implements Runnable {
         while(true){
             System.out.println("while ture...");
             try {
-                //1 必须要让多路复用器开始监听
+                //1 必须要让多路复用器开始监听。
+                //根据注释说明，Selector监听通道事件，当有事件发生时，调用Selector的wakeup方法
                 this.seletor.select();
                 //2 返回多路复用器已经选择的结果集
                 Iterator<SelectionKey> keys=this.seletor.selectedKeys().iterator();
@@ -74,16 +75,17 @@ public class Server implements Runnable {
             this.readBuf.clear();
             //2 获取之前注册的socket通道对象
             SocketChannel socketChannel = ((ServerSocketChannel)key.channel()).accept();
-            //3 循环读取数据
-            int count = socketChannel.read(this.readBuf);
+            //3 将数据读取到缓冲区
+            int count = socketChannel.read(this.readBuf);//同步非阻塞，通道无数据或不可写时，立即返回
             //4 如果没有数据
-            if(count == -1){
+            if(count <= 0){
+                System.out.println("无数据可读");
                 key.channel().close();
                 key.cancel();
                 return;
             }
             //5 有数据则进行读取 读取之前需要进行复位方法(把position 和limit进行复位)
-            this.readBuf.flip();
+            this.readBuf.flip();//将指针恢复到缓冲区的开始位置
             //6 根据缓冲区的数据长度创建相应大小的byte数组，接收缓冲区的数据
             byte[] bytes = new byte[this.readBuf.remaining()];
             //7 接收缓冲区数据
@@ -91,7 +93,7 @@ public class Server implements Runnable {
             //8 打印结果
             String body = new String(bytes).trim();
             System.out.println("Server receive: " + body);
-            // 9 写回给客户端数据
+//            // 9 写回给客户端数据
             String response = "老王，您好！";
             socketChannel.write(Charset.defaultCharset().encode(response));
             System.out.println("Server write:" + response);
