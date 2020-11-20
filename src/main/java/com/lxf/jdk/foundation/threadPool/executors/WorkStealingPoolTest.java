@@ -21,5 +21,13 @@ public class WorkStealingPoolTest {
         }
         Thread.sleep(5000);
         System.out.println("我是主线程：" + Thread.currentThread().getName());
+
+
+        //可以直接执行方法
+        executorService.submit(WorkStealingPoolTest::doTask);
+    }
+
+    private static void doTask(){
+
     }
 }
