@@ -2,6 +2,7 @@ package com.lxf;
 
 
 public class Test {
+
     public static void main(String[] args) {
         //程序调用System.gc()或不调用，垃圾回收器gc最终执行Object类的finalize()方法，最终决定是否回收
 //        System.gc();
@@ -34,6 +35,7 @@ public class Test {
 //        person.setId(0);
 //        person.setName("");
 //        person.setAge(0);
+
 
 
     }
