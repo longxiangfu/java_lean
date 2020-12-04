@@ -15,8 +15,8 @@ public class WrapperTest {
         //获取到的是动态生成的自适应类
         GoodsOrder goodsOrder = loader.getAdaptiveExtension();
 
-//        URL url = URL.valueOf("www.baidu.com");
-        URL url = URL.valueOf("www.baidu.com?goods.order=wechatPay");
+        URL url = URL.valueOf("www.baidu.com");
+//        URL url = URL.valueOf("www.baidu.com?goods.order=wechatPay");
         goodsOrder.payWay(url);
 //        前置增强2
 //        前置增强
@@ -28,8 +28,8 @@ public class WrapperTest {
         /**
          * 获取直接扩展类。AliPayOrder和WechatOrder是直接扩展类，AdaptiveOrder和OrderWrapper\OrderWrapper2不是
          */
-        Set<String> supportedExtensions = loader.getSupportedExtensions();
-        System.out.println(supportedExtensions);//[aliPay, wechatPay]
+//        Set<String> supportedExtensions = loader.getSupportedExtensions();
+//        System.out.println(supportedExtensions);//[aliPay, wechatPay]
 
     }
 }

@@ -6,11 +6,11 @@ import java.util.List;
 
 public class ArrayListDemo {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        System.out.println(Arrays.toString(list.toArray()));//[1, 2, 3]
+//        List<Integer> list = new ArrayList<>();
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
+//        System.out.println(Arrays.toString(list.toArray()));//[1, 2, 3]
 
 //        //替换
 //        list.replaceAll(e -> e+10);
@@ -103,6 +103,26 @@ public class ArrayListDemo {
 //        linkedList.add(null);
 //        linkedList.add(5, 10);
 
+
+        //两个集合的交集、差集、并集
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        List<Integer> list1 = new ArrayList<>();
+        list1.add(11);
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
+        //交集
+//        list1.retainAll(list);
+//        System.out.println("交集：" + Arrays.toString(list1.toArray()));
+        //差集
+//        list1.removeAll(list);
+//        System.out.println("差集：" + Arrays.toString(list1.toArray()));
+//        //并集
+        list1.addAll(list);
+        System.out.println("并集：" + Arrays.toString(list1.toArray()));
 
     }
 }
