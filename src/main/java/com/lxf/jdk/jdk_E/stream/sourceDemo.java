@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
  * 3、Sink:定义各个操作之间的关系，包括方法begin()\end()\cancellationRequested()\accept()
  * 4、中间操作不进行实际的执行，而是生成了对应操作的stage,进行终端操作时，终端stage触发之前的中间stage,生成一个Sink链，最终循环遍历
  * Slink链执行计算
+ * 5、stream是对集合对象的功能增强
+ * 6、stream的操作本质上还是命令式的，并不是响应式的（基于事件通知或回调）。响应式的比如jdk8的Completable的next操作、reactor的订阅操作
  */
 public class sourceDemo {
     public static void main(String[] args) {

@@ -2,6 +2,7 @@ package com.lxf.jdk.collectionDemo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayListDemo {
@@ -11,7 +12,6 @@ public class ArrayListDemo {
 //        list.add(2);
 //        list.add(3);
 //        System.out.println(Arrays.toString(list.toArray()));//[1, 2, 3]
-
 //        //替换
 //        list.replaceAll(e -> e+10);
 //        list.stream().forEach(e ->{
@@ -65,6 +65,8 @@ public class ArrayListDemo {
 //        //Collections是集合工具类，进行集合排序、线程安全操作等
 //        List<String> list = new ArrayList<>();
 //        list.add("a");
+//        list.add("b");
+//        Collections.reverse(list);//[b, a]
 //        Collections.sort(list);
 //        Collections.synchronizedList(list);
 //        if (list != null && !list.isEmpty()) {
@@ -73,6 +75,7 @@ public class ArrayListDemo {
 //        if(CollectionUtils.isEmpty(list)){
 //
 //        }
+//        System.out.println(Arrays.toString(list.toArray()));
 
 
         //ArrayList和LinkedList从中间插入，比较时间
@@ -105,24 +108,26 @@ public class ArrayListDemo {
 
 
         //两个集合的交集、差集、并集
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        List<Integer> list1 = new ArrayList<>();
-        list1.add(11);
-        list1.add(1);
-        list1.add(2);
-        list1.add(3);
-        //交集
-//        list1.retainAll(list);
-//        System.out.println("交集：" + Arrays.toString(list1.toArray()));
-        //差集
-//        list1.removeAll(list);
-//        System.out.println("差集：" + Arrays.toString(list1.toArray()));
-//        //并集
-        list1.addAll(list);
-        System.out.println("并集：" + Arrays.toString(list1.toArray()));
+//        List<Integer> list = new ArrayList<>();
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
+//        List<Integer> list1 = new ArrayList<>();
+//        list1.add(11);
+//        list1.add(1);
+//        list1.add(2);
+//        list1.add(3);
+//        //交集
+////        list1.retainAll(list);
+////        System.out.println("交集：" + Arrays.toString(list1.toArray()));
+//        //差集
+////        list1.removeAll(list);
+////        System.out.println("差集：" + Arrays.toString(list1.toArray()));
+////        //并集
+//        list1.addAll(list);
+//        System.out.println("并集：" + Arrays.toString(list1.toArray()));
+
+
 
     }
 }

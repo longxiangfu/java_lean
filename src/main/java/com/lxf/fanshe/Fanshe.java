@@ -21,6 +21,25 @@ public class Fanshe {
 			e.printStackTrace();
 		}
 
+
+		/**
+		 * 某类是否实现某接口
+		 * 某类是否继承某抽象类
+		 */
+//		boolean assignableFrom = People.class.isAssignableFrom(stu1Class);
+//		boolean assignableFrom1 = Human.class.isAssignableFrom(stu1Class);
+//		System.out.println("某类是否实现某接口：" + assignableFrom);//true
+//		System.out.println("某类是否继承某抽象类：" + assignableFrom1);//true
+
+
+		/**
+		 * 获取class的各种名字
+		 */
+		System.out.println(stu1Class.getName());//全限定名  com.lxf.fanshe.Student
+		System.out.println(stu1Class.getSimpleName());//简单名  Student
+		System.out.println(stu1Class.getCanonicalName());//Student
+		System.out.println(stu1Class.getTypeName());//Student
+
 	}
 
 }

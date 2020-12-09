@@ -4,7 +4,7 @@ package com.lxf.fanshe;
  * @author 15652
  *
  */
-public class Student {
+public class Student extends Human implements People{
 	//**********字段*************//  
     public String name;  
     protected int age;  
