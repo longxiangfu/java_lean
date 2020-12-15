@@ -13,7 +13,7 @@ public class OrderWrapper2 implements GoodsOrder {
     }
 
     @Override
-    public String getPayWay() {
+        public String getPayWay() {
         String payWay = goodsOrder.getPayWay();
         return payWay;
     }

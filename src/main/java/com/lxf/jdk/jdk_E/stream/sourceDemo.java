@@ -14,7 +14,9 @@ import java.util.stream.Collectors;
  * 4、中间操作不进行实际的执行，而是生成了对应操作的stage,进行终端操作时，终端stage触发之前的中间stage,生成一个Sink链，最终循环遍历
  * Slink链执行计算
  * 5、stream是对集合对象的功能增强
- * 6、stream的操作本质上还是命令式的，并不是响应式的（基于事件通知或回调）。响应式的比如jdk8的Completable的next操作、reactor的订阅操作
+ * 6、stream的操作本质上还是命令式的（即面向过程的），并不是响应式的（即面向结构的）。
+ * 7、属于同步Api。Stream（数据流（同步）+变化传递）+ CompletableFuture（异步非阻塞+声明式） == reactor(数据流（异步非阻塞+背压机制）+变化传递+声明式)。
+ * 但reactor在处理复杂逻辑处理上更方便，并且reactor具有“流量控制”
  */
 public class sourceDemo {
     public static void main(String[] args) {

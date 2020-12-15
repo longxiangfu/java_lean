@@ -1,15 +1,14 @@
 package com.lxf.jdk.jdk_E.completable;
 
-import javax.swing.plaf.TableHeaderUI;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 
 /**
  * 演示jdk8中并发包下的CompletableFuture
- * 说明：之前异步Future只能阻塞等待结果；而现在CompletableFuture异步执行之后，通知或回调另外的任务，非常棒
+ * 说明：之前异步Future只能阻塞等待结果；而现在CompletableFuture异步执行之后，回调另外的任务，非常棒
+ * 异步回调和声明式
+ * 不以Async结尾的方法也是非阻塞的，只是由JVM根据结果是否已经就绪来确定是继续在之前的线程执行还是分配到新的线程
  */
 public class CompletableFutureTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {

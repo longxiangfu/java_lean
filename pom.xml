@@ -161,30 +161,30 @@
             <version>1.2.58</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-bus</artifactId>
-            <version>2.0.8.RELEASE</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>io.projectreactor</groupId>-->
+            <!--<artifactId>reactor-bus</artifactId>-->
+            <!--<version>2.0.8.RELEASE</version>-->
+        <!--</dependency>-->
         <!--&lt;!&ndash; 添加jdk1.8对reactor的支持 &ndash;&gt;-->
         <!--&lt;!&ndash;  该版本与springboot reactor-bus 的版本冲突，所以暂时注释掉，该版本演示reactor基本知识用&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>io.projectreactor</groupId>-->
-            <!--<artifactId>reactor-core</artifactId>-->
-            <!--<version>3.0.5.RELEASE</version>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash; 对使用 jdk1.8 Reactor 的代码进行测试 ，版本和core冲突，没有找到合适的版本 &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>io.projectreactor</groupId>-->
-            <!--<artifactId>reactor-test</artifactId>-->
-            <!--<version>3.1.5.RELEASE</version>-->
-                <!--<scope>test</scope>-->
-        <!--</dependency>-->
         <dependency>
-            <groupId>org.projectreactor</groupId>
-            <artifactId>reactor-spring</artifactId>
-            <version>1.0.0.RELEASE</version>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+            <version>3.3.12.RELEASE</version>
         </dependency>
+        <!--&lt;!&ndash; 对使用 jdk1.8 Reactor 的代码进行测试 ，版本和core冲突，没有找到合适的版本 &ndash;&gt;-->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <version>3.3.12.RELEASE</version>
+                <scope>compile</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.projectreactor</groupId>-->
+            <!--<artifactId>reactor-spring</artifactId>-->
+            <!--<version>1.0.0.RELEASE</version>-->
+        <!--</dependency>-->
 
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
