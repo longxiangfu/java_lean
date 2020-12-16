@@ -33,7 +33,7 @@ public class sourceDemo {
         for (int i = 0; i < 10000; i++) {
             integers.add(i);
         }
-        //第一种方式  平行流会有线程安全问题，越界、重复、少元素的情况
+        //第一种方式  并行流会有线程安全问题，越界、重复、少元素的情况。相当于多线程
         ArrayList<Integer> parallelList = new ArrayList<>();
         integers.stream()
                 .parallel()

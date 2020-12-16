@@ -89,9 +89,9 @@ public class CompletableFutureTest {
 //        CompletableFuture.supplyAsync(() ->{
 //            System.out.println("步骤1。线程：" + Thread.currentThread().getName());
 //            return 1;
-//        }).thenAcceptAsync(beforeResult ->{
-//            System.out.println("步骤2。上阶段结果为：" + beforeResult);
-//            System.out.println("线程："  + Thread.currentThread().getName());
+//        }).thenAcceptAsync(beforeResult n->{
+////            System.out.println("步骤2。上阶段结果为：" + beforeResult);
+////            System.out.println("线程："  + Thread.curretThread().getName());
 //        });
 
         //thenApplyAsync：处理上阶段返回值，该阶段有返回值。因为是串行执行的，所以执行的线程可能是同一个
