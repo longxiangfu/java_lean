@@ -3,6 +3,14 @@ package com.lxf;
 
 public class Test {
 
+    static {
+        System.out.println("静态代码块");
+    }
+
+    {
+        System.out.println("普通代码块");
+    }
+
     public static void main(String[] args) {
         //程序调用System.gc()或不调用，垃圾回收器gc最终执行Object类的finalize()方法，最终决定是否回收
 //        System.gc();

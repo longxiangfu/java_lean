@@ -10,9 +10,10 @@ package com.lxf.jdk.foundation.fuZi;
  */
 public class Test {
     public static void main(String[] args) {
-        //测试类的实例化顺序
-//        Dog dog = new Dog();
+        //测试类的实例化顺序，并且静态数据（静态属性和静态代码块）只会被执行一次
+        Dog dog = new Dog();
+        Dog dog1 = new Dog();
 
-        Dog dog1 = new Dog("beibei");
+//        Dog dog2 = new Dog("beibei");
     }
 }

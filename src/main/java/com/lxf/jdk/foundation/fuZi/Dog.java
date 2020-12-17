@@ -20,7 +20,7 @@ public class Dog extends Animal {
      */
     public Dog(String name){
         super();//默认会有
-//        super("");//需要手动掉，并且和supperr()冲突
+//        super("");//需要手动掉，并且和supper()冲突
         this.name = name;
     }
 }
