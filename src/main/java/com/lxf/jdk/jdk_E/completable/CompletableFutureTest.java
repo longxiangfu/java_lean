@@ -2,13 +2,15 @@ package com.lxf.jdk.jdk_E.completable;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 /**
  * 演示jdk8中并发包下的CompletableFuture
  * 说明：之前异步Future只能阻塞等待结果；而现在CompletableFuture异步执行之后，回调另外的任务，非常棒
  * 异步回调和声明式
- * 不以Async结尾的方法也是非阻塞的，只是由JVM根据结果是否已经就绪来确定是继续在之前的线程执行还是分配到新的线程
+ * 不以Async结尾的方法也可能是非阻塞的，只是由JVM根据结果是否已经就绪来确定是继续在之前的线程执行还是分配到新的线程（见AsyncAndSyncTest和AsyncAndSyncTest1）
  */
 public class CompletableFutureTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -78,23 +80,23 @@ public class CompletableFutureTest {
      * 执行下一阶段
      */
     public static void next() throws ExecutionException, InterruptedException {
-        //thenRunAsync：不处理上阶段返回值，该阶段无返回值。因为是串行执行的，所以执行的线程可能是同一个
+        //thenRunAsync：不处理上阶段返回值，该阶段无返回值。
 //        CompletableFuture.runAsync(() ->{
 //            System.out.println("步骤1。线程：" + Thread.currentThread().getName());
 //        }).thenRunAsync(() ->{
 //            System.out.println("步骤2。线程：" + Thread.currentThread().getName());
 //        });
 
-        //thenAccept:处理上阶段返回值，该阶段无返回值。因为是串行执行的，所以执行的线程可能是同一个
+        //thenAccept:处理上阶段返回值，该阶段无返回值。
 //        CompletableFuture.supplyAsync(() ->{
 //            System.out.println("步骤1。线程：" + Thread.currentThread().getName());
 //            return 1;
-//        }).thenAcceptAsync(beforeResult n->{
-////            System.out.println("步骤2。上阶段结果为：" + beforeResult);
-////            System.out.println("线程："  + Thread.curretThread().getName());
+//        }).thenAcceptAsync(beforeResult->{
+//            System.out.println("步骤2。上阶段结果为：" + beforeResult);
+//            System.out.println("线程："  + Thread.currentThread().getName());
 //        });
 
-        //thenApplyAsync：处理上阶段返回值，该阶段有返回值。因为是串行执行的，所以执行的线程可能是同一个
+        //thenApplyAsync：处理上阶段返回值，该阶段有返回值。
 //        CompletableFuture<Integer> completableFuture = CompletableFuture.supplyAsync(() -> {
 //            System.out.println("步骤1。线程：" + Thread.currentThread().getName());
 //            return 1;
@@ -106,7 +108,7 @@ public class CompletableFutureTest {
 //        System.out.println(completableFuture.get());
 
 
-        //thenCombine:合并两个任务的结果，有返回值。因为是串行执行的，所以执行的线程可能是同一个
+        //thenCombine:合并两个任务的结果，有返回值。
 //        CompletableFuture<Integer> completableFuture =
 //                CompletableFuture.supplyAsync(() -> {
 //                    System.out.println("线程：" + Thread.currentThread().getName());
@@ -123,7 +125,7 @@ public class CompletableFutureTest {
 //        System.out.println(completableFuture.get());
 //        System.out.println(completableFuture.join());
 
-        //thenAcceptBothAsync:合并两个任务的结果，无返回值。因为是串行执行的，所以执行的线程可能是同一个
+        //thenAcceptBothAsync:合并两个任务的结果，无返回值。
 //        CompletableFuture.supplyAsync(() -> {
 //            System.out.println("线程：" + Thread.currentThread().getName());
 //            return 1;

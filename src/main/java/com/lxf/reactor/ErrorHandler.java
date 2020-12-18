@@ -1,6 +1,5 @@
 package com.lxf.reactor;
 
-import org.omg.IOP.TAG_ALTERNATE_IIOP_ADDRESS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Flux;
@@ -29,11 +28,11 @@ public class ErrorHandler {
     private static void test(){
         Flux.just(1, 2, 3, 4, 5, 6)
                 .map(i -> {
-                    System.out.println(Thread.currentThread().getName());
+                    System.out.println(Thread.currentThread().getName());//main
                     return 10/(i-3);
                 })
                 .map(i -> {
-                    System.out.println(Thread.currentThread().getName());
+                    System.out.println(Thread.currentThread().getName());//main
                     return i*i;
                 })
 //                .subscribe(System.out::println, System.out::println);//将异常输出
@@ -90,7 +89,7 @@ public class ErrorHandler {
                     .onErrorMap(e -> new RuntimeException("计算时发生错误", e))
                     .map(i -> i*i)
                     .subscribe(System.out::println);//抛出异常
-//                .subscribe(System.out::println, System.out::println);
+//                .subscribe(System.out::println, System.out::println);//输出异常
 //        25
 //        100
 //        java.lang.RuntimeException: 计算时发生错误
