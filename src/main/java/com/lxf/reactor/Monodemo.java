@@ -89,6 +89,8 @@ public class Monodemo {
 //		/*------------------调度器----------------------*/
 //		/**
 //		 * 通过调度器（Scheduler）可以指定反应式流操作执行的方式和所在的线程。多线程并发调度
+//		 * 不使用调度器的普通的操作符本身就是异步非阻塞的，这种异步非阻塞基于操作系统的异步非阻塞线程模型
+//		 * 使用调度器后，只是操作符对应的操作运行在不同于http线程的另外的工作线程上，底层还是基于操作系统的异步非阻塞
 //		 */
 //		Flux.create(sink -> {
 //			sink.next(Thread.currentThread().getName());
@@ -112,14 +114,14 @@ public class Monodemo {
 //				.toStream()
 //				.forEach(System.out::println);//single-1   subscribeOn无论出现在什么位置，只影响源头的执行环境
 //		testSyncToAsync();
-//		Flux.just(Thread.currentThread().getName())
-//		.publishOn(Schedulers.parallel())//切换的是下一个map操作符的执行方式
-//		.map(x -> String.format("[%s] %s", Thread.currentThread().getName(), x))
-//		.publishOn(Schedulers.elastic())//切换的是下一个map操作符的执行方式
-//		.map(x -> String.format("[%s] %s", Thread.currentThread().getName(), x))
-//		.subscribeOn(Schedulers.single())//切换的是产生流中元素时的执行方式
-//		.toStream()
-//		.forEach(System.out::println);//[elastic-2] [parallel-1] single-1
+		Flux.just(Thread.currentThread().getName())
+		.publishOn(Schedulers.parallel())//切换的是下一个map操作符的执行方式
+		.map(x -> String.format("[%s] %s", Thread.currentThread().getName(), x))
+		.publishOn(Schedulers.elastic())//切换的是下一个map操作符的执行方式
+		.map(x -> String.format("[%s] %s", Thread.currentThread().getName(), x))
+		.subscribeOn(Schedulers.single())//切换的是产生流中元素时的执行方式
+		.toStream()
+		.forEach(System.out::println);//[elastic-2] [parallel-1] single-1
 
 
 //		/*------------------测试 单元测试 测试关注于每个数据元素----------------------*/
