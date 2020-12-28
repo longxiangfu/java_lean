@@ -27,4 +27,19 @@ public interface TestLockMapper {
     int updateByPrimaryKeySelective(TestLock record);
 
     int updateByPrimaryKey(TestLock record);
+
+
+
+    TestLock findById(@Param("id")Long id);//通过id查询
+    List<TestLock> findByAll(TestLock testLock);//查询条件动态查询
+
+    int updateById(@Param("updated")TestLock updated,@Param("id")Long id);//查询条件为id的动态更新
+
+
+
+
+
+
+
+
 }
