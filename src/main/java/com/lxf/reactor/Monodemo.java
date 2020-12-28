@@ -114,14 +114,14 @@ public class Monodemo {
 //				.toStream()
 //				.forEach(System.out::println);//single-1   subscribeOn无论出现在什么位置，只影响源头的执行环境
 //		testSyncToAsync();
-		Flux.just(Thread.currentThread().getName())
-		.publishOn(Schedulers.parallel())//切换的是下一个map操作符的执行方式
-		.map(x -> String.format("[%s] %s", Thread.currentThread().getName(), x))
-		.publishOn(Schedulers.elastic())//切换的是下一个map操作符的执行方式
-		.map(x -> String.format("[%s] %s", Thread.currentThread().getName(), x))
-		.subscribeOn(Schedulers.single())//切换的是产生流中元素时的执行方式
-		.toStream()
-		.forEach(System.out::println);//[elastic-2] [parallel-1] single-1
+//		Flux.just(Thread.currentThread().getName())
+//		.publishOn(Schedulers.parallel())//切换的是下一个map操作符的执行方式
+//		.map(x -> String.format("[%s] %s", Thread.currentThread().getName(), x))
+//		.publishOn(Schedulers.elastic())//切换的是下一个map操作符的执行方式
+//		.map(x -> String.format("[%s] %s", Thread.currentThread().getName(), x))
+//		.subscribeOn(Schedulers.single())//切换的是产生流中元素时的执行方式
+//		.toStream()
+//		.forEach(System.out::println);//[elastic-2] [parallel-1] single-1
 
 
 //		/*------------------测试 单元测试 测试关注于每个数据元素----------------------*/
@@ -140,14 +140,15 @@ public class Monodemo {
 ////		2020-12-18 11:23:59.193 INFO  Range Line:274 - | onComplete()
 //
 //		/*------------------“冷”与“热”序列----------------------*/
-//		final Flux<Long> source = Flux.interval(Duration.ofMillis(1000)).publish().autoConnect();
-//		source.subscribe();
-//		try {
-//			Thread.sleep(5000);
-//		} catch (InterruptedException e1) {
-//			e1.printStackTrace();
-//		}
-//		source.toStream().forEach(System.out::println);//5 6 7 8 9 第二个订阅者只能获取到5以后的元素
+		//按时间产生的序列，订阅者只能获取到订阅之后的数据
+		final Flux<Long> source = Flux.interval(Duration.ofMillis(1000)).publish().autoConnect();
+		source.subscribe();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		source.toStream().forEach(System.out::println);//5 6 7 8 9 第二个订阅者只能获取到5以后的元素
 //
 //	}
 //

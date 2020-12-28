@@ -1,5 +1,7 @@
 package com.lxf.jdk.callback;
 
+import java.io.IOException;
+
 /**
  * 回调机制：A不用主动调用B，需要的时候B会回调A事先注册到B上的方法
  * 示例1：ajax发出调用之后，不用再主动去请求服务端成功与否，而是向服务端注册一个success事件，当服务端处理完成，
@@ -8,14 +10,16 @@ package com.lxf.jdk.callback;
  * 当somethingHappened为true时，会回调自己的interestingEvent方法
  */
 public class CallbackTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         CallMe cm = new CallMe();  //待回调用的对象1
         CallYou cy = new CallYou(); //待回调用的对象2
         EventNotifier en = new EventNotifier(); //回调事件主体对象，此例在构造函数阶段进行事件触发标识
         en.setInterestingEvent(cm); //将待回调对象1设置到主体方法内
         en.doWork(); //当执行主体对象的方法时，检测标识是否为真，如果为真，则同时调用了待回调对象1的实现//接口预先定义的方法
 
-        en.setInterestingEvent(cy);//将待回调对象2设置到主体方法内
-        en.doWork();//当执行主体对象的方式时，检测标识是否为真，如果为真，则同时调用了待回调对象1的实现//接口预先定义的方法
+        EventNotifier eventNotifier = new EventNotifier();
+        eventNotifier.setInterestingEvent(cy);//将待回调对象2设置到主体方法内
+        eventNotifier.doWork();//当执行主体对象的方式时，检测标识是否为真，如果为真，则同时调用了待回调对象1的实现//接口预先定义的方法
+        System.in.read();
     }
 }
