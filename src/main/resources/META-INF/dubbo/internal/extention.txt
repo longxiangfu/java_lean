@@ -1,5 +1,7 @@
-aliPay=com.lxf.jdk8.foundation.spi.dubbo.AliPayOrder
-wechatPay=com.lxf.jdk8.foundation.spi.dubbo.WechatOrder
+#dubbo spi文件删掉的
+adaptive=com.lxf.jdk8.foundation.spi.dubbo.adaptive.AdaptiveOrder
+wrapper2=com.lxf.jdk8.foundation.spi.dubbo.wrapper.OrderWrapper2
+wrapper=com.lxf.jdk8.foundation.spi.dubbo.wrapper.OrderWrapper
 card=com.lxf.jdk8.foundation.spi.dubbo.activate.CardOrder
 cash=com.lxf.jdk8.foundation.spi.dubbo.activate.CashOrder
 coupon=com.lxf.jdk8.foundation.spi.dubbo.activate.CouponOrder

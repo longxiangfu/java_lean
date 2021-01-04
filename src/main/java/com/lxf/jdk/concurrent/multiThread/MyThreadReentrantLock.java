@@ -1,6 +1,7 @@
 package com.lxf.jdk.concurrent.multiThread;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -18,6 +19,7 @@ public class MyThreadReentrantLock implements Runnable{
 	public void run() {
 		lock.lock();
 		lock.tryLock();
+
 		try {
 			lock.tryLock(3, TimeUnit.SECONDS);//获取锁期间，若线被中断，则抛出InterruptedException
 		} catch (InterruptedException e) {

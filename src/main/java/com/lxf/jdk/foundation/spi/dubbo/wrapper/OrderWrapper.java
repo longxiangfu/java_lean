@@ -3,9 +3,8 @@ package com.lxf.jdk.foundation.spi.dubbo.wrapper;
 
 import com.lxf.jdk.foundation.spi.dubbo.GoodsOrder;
 import org.apache.dubbo.common.URL;
-import org.apache.dubbo.common.extension.Wrapper;
 
-@Wrapper(matches = {"aliPay,wechatPay,card,cash"}, mismatches = {"coupon"})
+//@Wrapper(matches = {"aliPay,wechatPay,card,cash"}, mismatches = {"coupon"})
 public class OrderWrapper implements GoodsOrder {
 
     private GoodsOrder goodsOrder;
