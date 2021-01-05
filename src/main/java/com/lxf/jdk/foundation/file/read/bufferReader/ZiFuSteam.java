@@ -4,7 +4,7 @@ import java.io.*;
 
 /**
  * 字符流
- * 同步阻塞：java程序亲自操作读写，等待直到写完或读完
+ * 同步阻塞
  * 磁盘io
  */
 public class ZiFuSteam {

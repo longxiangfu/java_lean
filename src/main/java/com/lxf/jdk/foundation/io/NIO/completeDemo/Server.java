@@ -24,7 +24,7 @@ public class Server implements Runnable {
             //2 打开服务器通道
             ServerSocketChannel socketChannel = ServerSocketChannel.open();
             //3 设置服务器通道为非阻塞模式
-            socketChannel.configureBlocking(false);
+            socketChannel.configureBlocking(false);//通道无数据或不可写时，立即返回  //设置成true会报错
             //4 绑定Channel和地址
             socketChannel.bind(new InetSocketAddress(port));
             //5 把服务器通道注册到多路复用器上，并且监听阻塞事件
