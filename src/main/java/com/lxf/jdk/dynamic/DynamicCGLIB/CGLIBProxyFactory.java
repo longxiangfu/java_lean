@@ -36,7 +36,7 @@ public class CGLIBProxyFactory implements MethodInterceptor {
      * @throws Throwable
      */
     @Override
-    public Object intercept(Object target, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
+        public Object intercept(Object target, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         System.out.println("前置业务");
         Object result = methodProxy.invokeSuper(target, args);
         System.out.println("后置业务");
