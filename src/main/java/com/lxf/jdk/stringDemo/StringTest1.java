@@ -15,6 +15,7 @@ public class StringTest1 {
         StringBuilder stringBd = new StringBuilder("hi,");
         changeBd(stringBd);
         System.out.println(stringBd);//hi,laoWang
+
     }
 
     private static void changeBd(StringBuilder stringBd) {
