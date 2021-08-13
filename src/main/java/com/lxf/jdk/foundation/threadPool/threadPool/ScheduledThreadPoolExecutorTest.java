@@ -1,6 +1,7 @@
 package com.lxf.jdk.foundation.threadPool.threadPool;
 
 import java.io.IOException;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -9,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ScheduledThreadPoolExecutorTest {
     // ScheduledThreadPoolExecutor方法丰富,可以计划执行，可以设置线程池，可以查看线程池和线程信息
-    private ScheduledThreadPoolExecutor executor;
+    private ScheduledExecutorService executor;
 
 
     ScheduledThreadPoolExecutorTest() {
