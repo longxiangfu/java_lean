@@ -10,13 +10,13 @@ import java.lang.reflect.Proxy;
  *
  */
 public class ReflectProxyFactory {
-	
+
 	public static Object getProxy(final Object target) {
-		
+
 		Object angencyObj = null;
 		angencyObj = Proxy.newProxyInstance(
 				target.getClass().getClassLoader(),
-				target.getClass().getInterfaces(),
+				target.getClass().getInterfaces(), // 实现目标类接口
 				new InvocationHandler() {
 					@Override
 					public Object invoke(Object proxyObject, Method method, Object[] args) throws Throwable {
@@ -39,7 +39,7 @@ public class ReflectProxyFactory {
 
 				);
 		return angencyObj;
-		
+
 		}
 
 }

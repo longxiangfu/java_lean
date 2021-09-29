@@ -19,7 +19,7 @@ public class CGLIBProxyFactory implements MethodInterceptor {
      */
     public Object getProxy(Class targetClass){
         //设置目标类
-        enhancer.setSuperclass(targetClass);
+        enhancer.setSuperclass(targetClass);// 继承目标类
         enhancer.setCallback(this);
         //创建代理类（目标类子类）
         return enhancer.create();
@@ -36,7 +36,7 @@ public class CGLIBProxyFactory implements MethodInterceptor {
      * @throws Throwable
      */
     @Override
-        public Object intercept(Object target, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
+    public Object intercept(Object target, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         System.out.println("前置业务");
         Object result = methodProxy.invokeSuper(target, args);
         System.out.println("后置业务");

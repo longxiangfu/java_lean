@@ -1,4 +1,4 @@
-package com.lxf.jdk;
+package com.lxf.jdk.stringDemo;
 
 import com.google.common.collect.ImmutableList;
 

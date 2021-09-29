@@ -1,9 +1,7 @@
 package com.lxf.jdk.collectionDemo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ArrayListDemo {
     public static void main(String[] args) {
@@ -107,26 +105,15 @@ public class ArrayListDemo {
 //        linkedList.add(5, 10);
 
 
-        //两个集合的交集、差集、并集
-//        List<Integer> list = new ArrayList<>();
-//        list.add(1);
-//        list.add(2);
-//        list.add(3);
-//        List<Integer> list1 = new ArrayList<>();
-//        list1.add(11);
-//        list1.add(1);
-//        list1.add(2);
-//        list1.add(3);
-//        //交集
-////        list1.retainAll(list);
-////        System.out.println("交集：" + Arrays.toString(list1.toArray()));
-//        //差集
-////        list1.removeAll(list);
-////        System.out.println("差集：" + Arrays.toString(list1.toArray()));
-////        //并集
-//        list1.addAll(list);
-//        System.out.println("并集：" + Arrays.toString(list1.toArray()));
-
+        // 集合元素拼接成以逗号分隔的字符串
+//        List<String> list = new ArrayList<>();
+//        list.add("a");
+//        list.add("b");
+//        list.add("c");
+//        String join = list.stream().collect(Collectors.joining(","));
+//        String join1 = String.join(",", list);
+//        System.out.println("join:" + join); // join:a,b,c
+//        System.out.println("join1:" + join1); // join1:a,b,c
 
 
     }

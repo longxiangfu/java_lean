@@ -1,8 +1,5 @@
 package com.lxf.jdk.collectionDemo;
 
-import sun.misc.CompoundEnumeration;
-
-import java.net.URL;
 import java.util.Enumeration;
 import java.util.Vector;
 
