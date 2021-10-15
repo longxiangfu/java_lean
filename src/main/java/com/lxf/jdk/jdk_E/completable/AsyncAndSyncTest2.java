@@ -30,6 +30,10 @@ public class AsyncAndSyncTest2 {
         f.thenRun(() -> System.out.println("线程B：" + Thread.currentThread().getName()));
         System.out.println("线程C：" + Thread.currentThread().getName());
         System.in.read();
+//        线程A：ForkJoinPool.commonPool-worker-1
+//        线程C：main
+//        线程B：ForkJoinPool.commonPool-worker-1
+//        线程A执行完成
     }
 
     private static void test2() throws IOException, InterruptedException {

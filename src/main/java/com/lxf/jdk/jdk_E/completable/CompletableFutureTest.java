@@ -8,9 +8,10 @@ import java.util.concurrent.Executors;
 
 /**
  * 演示jdk8中并发包下的CompletableFuture
- * 说明：之前异步Future只能阻塞等待结果；而现在CompletableFuture异步执行之后，回调另外的任务，非常棒
+ * 说明：之前异步Future只能阻塞等待结果；而现在CompletableFuture异步执行之后，会掉另外的任务，非常棒
  * 异步回调和声明式
  * 不以Async结尾的方法也可能是非阻塞的，只是由JVM根据结果是否已经就绪来确定是继续在之前的线程执行还是分配到新的线程（见AsyncAndSyncTest和AsyncAndSyncTest1）
+ * 任务编排
  */
 public class CompletableFutureTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -198,7 +199,7 @@ public class CompletableFutureTest {
 //        System.out.println(completableFuture.join());
 ////        System.out.println(completableFuture.get());
 
-        //complete:如何结果还没准备好，直接调用get
+        //complete:如果结果还没准备好，直接调用get
         CompletableFuture.supplyAsync(() -> 1).complete(10);
 
         //completedFuture:返回包含指定值的CompletableFuture
