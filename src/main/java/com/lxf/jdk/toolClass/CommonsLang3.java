@@ -49,7 +49,7 @@ public class CommonsLang3 {
 //        } catch (ParseException e) {
 //            e.printStackTrace();
 //        }
-//        // 计算一个小时候的日期
+//        // 计算一个小时后的日期
 //        Date date = DateUtils.addHours(new Date(), 1);
 //        System.out.println("计算一个小时候的日期:" + date); // 计算一个小时候的日期:Fri Aug 13 16:12:47 CST 2021
 
