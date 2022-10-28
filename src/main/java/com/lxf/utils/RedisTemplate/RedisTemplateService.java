@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * redis template 工具类
  */
-@Component
+//@Component
 public class RedisTemplateService {
   public static final int DEFAULT_TIME = 60 * 10;// 10分钟
   private static Logger logger = LoggerFactory.getLogger(RedisTemplateService.class);

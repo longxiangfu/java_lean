@@ -1,9 +1,7 @@
 package com.lxf.utils;
 
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPubSub;
-import redis.clients.jedis.Pipeline;
+import org.springframework.stereotype.Component;
+import redis.clients.jedis.*;
 
 import java.util.List;
 import java.util.Map;

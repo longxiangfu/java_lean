@@ -15,7 +15,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 缓存工具类
  */
-@Service
+//@Service
 public class CacheUtil implements InitializingBean {
 
 

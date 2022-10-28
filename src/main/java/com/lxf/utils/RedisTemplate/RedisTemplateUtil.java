@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * RedisTemplateUtil工具类
  */
-@Component
+//@Component
 public class RedisTemplateUtil<T> {
     private static Logger logger = LoggerFactory.getLogger(RedisTemplateUtil.class);
 
