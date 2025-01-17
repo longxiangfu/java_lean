@@ -1,9 +1,6 @@
 package com.lxf.jdk.concurrent.multiThread;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.*;
 
 /**
  * Semaphore信号量:控制访问资源的线程个数
@@ -25,6 +22,7 @@ public class SemaphoreDemo1 {
 				public void run() {
 					try {
 						sp.acquire();//获取许可
+//						sp.tryAcquire(10, TimeUnit.SECONDS); // 试图获取信号量
 					}catch(InterruptedException e) {
 						e.printStackTrace();
 					}

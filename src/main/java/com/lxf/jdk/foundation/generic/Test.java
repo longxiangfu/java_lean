@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        typeClear();
+//        typeClear();
         different();
-        different1();
-        different2();
+//        different1();
+//        different2();
     }
 
     private static void different2() {
@@ -44,6 +44,6 @@ public class Test {
         //编译后，会进行类型擦除，变成Object
         List<String> list = new ArrayList<>();
         List<Integer> list1 = new ArrayList<>();
-        System.out.println(list.getClass() == list1.getClass());
+        System.out.println(list.getClass() == list1.getClass()); // true
     }
 }

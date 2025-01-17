@@ -20,5 +20,6 @@ public class TestThreadCreaete {
         System.out.println(futureTask.get());
 
         System.out.println("主线程："+ Thread.currentThread().getName());
+
     }
 }

@@ -1,5 +1,8 @@
 package com.lxf.jdk.jdk_E.Optional;
 
+import org.redisson.misc.Hash;
+
+import java.util.HashMap;
 import java.util.Optional;
 
 /**
@@ -23,11 +26,15 @@ import java.util.Optional;
 public class NullPointer {
 
 	public static void main(String[] args) {
+		/**
+		 * Optional一般只判断对象
+		 * 其他的像String  HashMap  List使用Hutool工具
+		 */
 		Outer outer = new Outer();
 		Nested nested = new Nested();
 		Inner inner = new Inner();
 		inner.setFoo("foo");
-		nested.setInner(inner);
+//		nested.setInner(inner);
 		outer.setNested(nested);
 		String foo = Optional.ofNullable(outer)
 				.map(Outer::getNested)

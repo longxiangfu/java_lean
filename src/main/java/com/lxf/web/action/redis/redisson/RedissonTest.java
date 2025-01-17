@@ -79,9 +79,15 @@ public class RedissonTest {
 
         //分布式锁
         RLock rLock = redisson.getLock(lockKey);
-        rLock.lock(60, TimeUnit.SECONDS);
-//        rLock.lockAsync(60, TimeUnit.SECONDS);
-//        rLock.tryLockAsync(60, TimeUnit.SECONDS);
+        // 有看门狗的逻辑和where true的逻辑
+        rLock.lock();
+        // 没有where true的逻辑（自旋）和看门狗的逻辑（锁续期）
+        // 第一个参数：在指定时间内没有获取到锁直接返回  第二个参数：获取到锁后的锁超时时间
+//        try {
+//            rLock.tryLock(10, 10,  TimeUnit.SECONDS);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         try{
             Future<Boolean> res = rLock.tryLockAsync(60, 20,TimeUnit.SECONDS);//leaseTime超时时间
             boolean result = res.get();

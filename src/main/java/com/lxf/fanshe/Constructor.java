@@ -49,7 +49,7 @@ public class Constructor {
 			con = classz.getDeclaredConstructor(char.class);
 			System.out.println(con);
 			try {
-				Object obj = con.newInstance('楠');//调用构造方法
+				Object obj = con.newInstance("楠");//调用构造方法
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
