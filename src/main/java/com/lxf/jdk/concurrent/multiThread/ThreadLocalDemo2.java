@@ -1,7 +1,7 @@
 package com.lxf.jdk.concurrent.multiThread;
 
 /**
- * ThreadLocal也能实现变量线程共享，利用InheritableThreadLocal
+ * ThreadLocal也能实现变量线程共享，利用InheritableThreadLocal获取父线程的变量
  */
 public class ThreadLocalDemo2 {
     public static void main(String[] args) {

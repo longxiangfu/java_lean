@@ -21,7 +21,7 @@ public class MyThreadReentrantLock implements Runnable{
 		lock.tryLock();
 
 		try {
-			lock.tryLock(3, TimeUnit.SECONDS);//获取锁期间，若线被中断，则抛出InterruptedException
+			lock.tryLock(3, TimeUnit.SECONDS);//获取锁期间，若线程被中断，则抛出InterruptedException
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

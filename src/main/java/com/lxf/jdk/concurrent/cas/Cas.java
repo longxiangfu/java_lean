@@ -3,7 +3,7 @@ package com.lxf.jdk.concurrent.cas;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * 模拟ACS操作（本示例未演示多线程操作的原子性，但是原子操作类能够保证原子操作）
+ * 模拟CAS操作（本示例未演示多线程操作的原子性，但是原子操作类能够保证原子操作）
  * @author longxiangfu
  *
  */

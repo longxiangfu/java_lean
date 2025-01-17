@@ -23,8 +23,8 @@ public class ShallowCopyTest {
         pCopy.getWangWu().setSex(2);
 
         //origin name|wangwu.sex:陈婷|2。 new name|wangwu.sex:龙相甫|2   ----2  2
-        System.out.println("origin name|wangwu.sex:" + p.getName() + "|" + p.getWangWu().getSex()
-                + "。 new name|wangwu.sex:" + pCopy.getName() + "|" + pCopy.getWangWu().getSex());
+        System.out.println("origin name|wangwu.sex: " + p.getName() + "|" + p.getWangWu().getSex()
+                + "。 new name|wangwu.sex: " + pCopy.getName() + "|" + pCopy.getWangWu().getSex());
 
     }
 }
