@@ -20,7 +20,7 @@ public class Client {
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
             out.println("Client request");
-            String response = in.readLine();//同步阻塞，基于底层阻塞IO模型
+            String response = in.readLine();//同步阻塞
             System.out.println("Client:" + response);
         }  catch (Exception e) {
             e.printStackTrace();

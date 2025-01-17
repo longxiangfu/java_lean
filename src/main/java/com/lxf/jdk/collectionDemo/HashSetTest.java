@@ -1,8 +1,6 @@
 package com.lxf.jdk.collectionDemo;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
+import java.util.*;
 
 public class HashSetTest {
     public static void main(String[] args) {
@@ -16,6 +14,5 @@ public class HashSetTest {
         //
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         linkedHashSet.add(1);
-
     }
 }

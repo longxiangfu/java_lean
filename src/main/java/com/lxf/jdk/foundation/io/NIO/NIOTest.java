@@ -17,7 +17,6 @@ import java.util.Set;
 
 /**
  * NIO示例：
- * 底层基于复用IO（同步阻塞）
  * 同步非阻塞（通道设置为非阻塞时，当无内容可读或不可写时，立即返回）
  * 客户端、ServerSocketChannel、SelectionKey、Selector、服务端
  * key和channel绑定并注册到selector,然后一直循环key的Set

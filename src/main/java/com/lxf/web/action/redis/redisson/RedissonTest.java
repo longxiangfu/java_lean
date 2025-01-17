@@ -1,15 +1,18 @@
 package com.lxf.web.action.redis.redisson;
 
-import com.lxf.utils.RedisTemplate.CacheUtil;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import org.redisson.Redisson;
-import org.redisson.api.*;
+import org.redisson.RedissonReactive;
+import org.redisson.api.RAtomicLongAsync;
+import org.redisson.api.RAtomicLongReactive;
+import org.redisson.api.RFuture;
+import org.redisson.api.RLock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -18,8 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 分布式锁Redisson测试
- * 1、分布式锁:指的是集群的形式
- * 2、Redisson练习
+ * Redisson练习
  */
 @Controller
 @RequestMapping("/redis")
@@ -31,27 +33,20 @@ public class RedissonTest {
     @Resource
     Redisson redisson;
     @Resource
-    RedissonClient redissonClient;
-    @Resource
-    RedissonReactiveClient redissonReactiveClient;
-    @Resource
-    CacheUtil cacheUtil;
+    RedissonReactive redissonReactive;
 
-    @PostMapping("/test")
-    public void test(){
-        //1、
-        RBucket<String> keyObject = redissonClient.getBucket("name");
-        keyObject.set("longxiangfu");
-        //2、异步调用程序接口
-        RAtomicLongAsync rAtomicLongAsync = redissonClient.getAtomicLong("myLong");
+    @GetMapping("/async")
+    public void async(){
+        // 异步调用程序接口
+        RAtomicLongAsync rAtomicLongAsync = redisson.getAtomicLong("myLong");
         RFuture<Boolean> future = rAtomicLongAsync.compareAndSetAsync(1, 401);
         future.whenComplete((res, exception) ->{
-//            System.out.println("res exceptionn:"+ res + " " + exception.getMessage());
             logger.info("res:" + res);
             logger.info("exception:" + exception.getMessage());
         });
-        //3、异步流调用程序接口
-        RAtomicLongReactive rAtomicLongReactive = redissonReactiveClient.getAtomicLong("myLong");
+
+        // 异步流调用程序接口
+        RAtomicLongReactive rAtomicLongReactive = redissonReactive.getAtomicLong("myLong");
         Publisher<Boolean> publisher = rAtomicLongReactive.compareAndSet(10, 91);
         publisher.subscribe(new Subscriber<Boolean>() {
             @Override
@@ -61,23 +56,27 @@ public class RedissonTest {
 
             @Override
             public void onNext(Boolean aBoolean) {
-
+                System.out.print("onNext");
             }
 
             @Override
             public void onError(Throwable throwable) {
-
+                System.out.print("onError");
             }
 
             @Override
             public void onComplete() {
+                System.out.print("onComplete");
 
             }
         });
 
 
+    }
 
-        //分布式锁
+
+    @GetMapping("/lock")
+    public void testLock() {
         RLock rLock = redisson.getLock(lockKey);
         rLock.lock(60, TimeUnit.SECONDS);
 //        rLock.lockAsync(60, TimeUnit.SECONDS);
@@ -87,10 +86,10 @@ public class RedissonTest {
             boolean result = res.get();
             //加锁成功
             if (result) {
-                Integer count = cacheUtil.getCache("stock", Integer.class);
+                int count = 10; // 模拟从缓存中获取库存
                 //减库存
-                if ((count > 0)) {
-                    cacheUtil.set("stock", count-1, 60*60*24);
+                if (count > 0) {
+                    count -= 1;
                 }else{
                     System.out.println("没有库存了");
                 }
@@ -102,7 +101,6 @@ public class RedissonTest {
             rLock.unlock();
         }
     }
-
 
     public static void main(String[] args) {
 

@@ -4,10 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * 演示读写锁:
- * 1、读锁之间不互斥
- * 2、读锁和写锁互斥
- * 3、写锁之间互斥
+ * 演示读写锁: 允许多个线程上读锁；只允许一个线程上写锁
  * @author longxiangfu
  *
  */
@@ -55,7 +52,7 @@ class Queue{
 	public void get() {
 		ReentrantReadWriteLock.ReadLock readLock = rw.readLock();
 		try {
-			readLock.lock();//上读锁，允许多个线程读取
+			readLock.lock();//允许多个线程上读锁
 			System.out.println(Thread.currentThread().getName()+" be ready to read data!");
 			Thread.sleep(2000);
 			System.out.println(Thread.currentThread().getName()+" have read data:"+data);
@@ -70,7 +67,7 @@ class Queue{
 	public void put(Object data) {
 		ReentrantReadWriteLock.WriteLock writeLock = rw.writeLock();
 		try {
-			writeLock.lock();//上写锁，只允许一个线程写
+			writeLock.lock();//只允许一个线程上写锁
 			System.out.println(Thread.currentThread().getName()+" be ready to write data!");
 			Thread.sleep(2000);
 			this.data = data;

@@ -1,135 +1,24 @@
 package com.lxf.jdk.collectionDemo;
+import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 
+import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.*;
 
 @Slf4j
 public class HashMapDemo {
-    public static void main(String[] args) {
-//        HashMap map = new LinkedHashMap();
-//        /*
-//        验证方法static final int tableSizeFor(int cap):返回大于n的最小的2的自然数幂
-//         */
-//        int n = 100 - 1;
-//        n |= n >>> 1;
-//        n |= n >>> 2;
-//        n |= n >>> 4;
-//        n |= n >>> 8;
-//        n |= n >>> 16;
-//        System.out.println("n:" + n);
-//
-//        //测试
-////        int a = 0;
-////        int value = (int)map.get(1);
-////        if ((a = value) == 1) {
-//        //value是否赋值给了a
-//        map.put(1, 1);
-//        map.put(2, 2);
-//        int a = 0;
-//        int value = (int)map.get(1);
-//        if ((a = value) == 1) {
-//            System.out.println("map.get:" + map.get(1).toString());
-//        }
-//        System.out.println("a:" + a);
-//
-//
-//        //
-//        Set<Integer> keySet = map.keySet();
-//        keySet.forEach(e -> System.out.println("key:" + e));
-//
-//        //
-//        InputStream inputStream = new InputStream() {
-//            @Override
-//            public int read() throws IOException {//read是个阻塞操作
-//                return 0;
-//            }
-//        };
-//        try {
-//            ObjectInputStream ois = new ObjectInputStream(inputStream);
-//            ois.readObject();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        //aiXcoder
-//        try {
-//
-//        }catch (Exception e){
-//            System.out.println("1");
-//        }
-//
-//        //
-//        try {
-//            assert 1==1;
-//        }catch (Exception e){
-//            log.error(e.getMessage(), e);
-//        }
-//        System.out.println("断言正确");
-//
-//
-//        //
-//        int h = 1, j = 2, k;
-//        k = 10;
-//
-//
-//        //
-//        Integer age = 10;
-//        long code = System.identityHashCode(age);
-//        System.out.println("code:" + code);
-//
-//        //
-//        HashMap<String, String> map1 = new HashMap();
-//        map1.put(null, null);
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+//        verifyExpansion();
+//        myHashCode(10);
+//        permitNull();
+        viewFormat();
 
-    //HashMap允许空键值，Hashtable不允许
-//        HashMap map = new HashMap();
-//        map.put(null, null);
-//        Hashtable table = new Hashtable();
-//        table.put(null, null);//运行抛空指针(Hashtable的key和value都不能为null)
 
-        //HashSet
-//        HashSet hashSet = new HashSet();
-//        hashSet.add("a");
 
-        //CurrentHashMap
-//        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-//        concurrentHashMap.put("1", 1);
+    }
 
-        //LinkedHashMap
-        //插入顺序(按插入顺序排序)
-//        LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap();
-//        linkedHashMap.put("1", 1);
-//        linkedHashMap.put("2", 2);
-//        linkedHashMap.put("3", 3);
-//        Set<Map.Entry<String, Integer>> entries = linkedHashMap.entrySet();
-//        Iterator iterator =entries .iterator();
-//        System.out.println("LinkedList插入顺序");
-//        while (iterator.hasNext()) {
-//            Map.Entry<String, Integer> entry = (Map.Entry)iterator.next();
-//            System.out.println(String.format("key:%s, value:%d", entry.getKey(), entry.getValue()));
-//        }
-        //访问顺序（按访问顺序进行排序，即将最近访问的node放到最后）
-//        LinkedHashMap<String, Integer> linkedHashMap1 = new LinkedHashMap(16, 0.75f, true);
-//        linkedHashMap1.put("4", 4);
-//        linkedHashMap1.put("5", 5);
-//        linkedHashMap1.put("6", 6);
-//        linkedHashMap1.get("4");
-//        Set<Map.Entry<String, Integer>> entries1 = linkedHashMap1.entrySet();
-//        Iterator iterator1 =entries1 .iterator();
-//        System.out.println("LinkedList访问顺序");
-//        while (iterator1.hasNext()) {
-//            Map.Entry<String, Integer> entry1 = (Map.Entry)iterator1.next();
-//            System.out.println(String.format("key:%s, value:%d", entry1.getKey(), entry1.getValue()));
-//        }
-//        //result:
-//        LinkedList访问顺序
-//        key:5, value:5
-//        key:6, value:6
-//        key:4, value:4
-
+    private static void viewFormat() {
         //map输出格式
         Map<Integer, String> map = new HashMap<>();
         map.put(1, "a");
@@ -137,10 +26,76 @@ public class HashMapDemo {
         map.put(3, "c");
         map.put(4, "d");
         map.put(5, "e");
-        System.out.println(map.toString());//{1=a, 2=b, 3=c, 4=d, 5=e}
+        System.out.println(map); // {1=a, 2=b, 3=c, 4=d, 5=e}
+
+    }
+
+    /**
+     * 验证HashMap和HashTable的key和value是否允许为null
+     */
+    private static void permitNull() {
+        // map的key和value都允许为null
+        HashMap<String, String> map = new HashMap<>();
+        map.put(null, null);
+        map.put("1", null);
+        map.put(null, "1");
+
+        // Hashtable的key和value都不允许为null
+        Hashtable<String, String> hashtable = new Hashtable<>();
+//        hashtable.put(null, null);
+//        hashtable.put(null, "1");
+//        hashtable.put("1", null);
+    }
+
+    /**
+     * 获取hashCode
+     * @param object
+     * @return
+     */
+    public static int myHashCode(Object object) {
+        int hash = System.identityHashCode(object);
+        System.out.println("hash:" + hash); // hash:715521683
+        return hash;
+    }
 
 
+    /**
+     * 验证扩容机制
+     */
+    public static void verifyExpansion() throws NoSuchFieldException, IllegalAccessException {
+        // 创建初始容量为4，负载因子为0.75的HashMap,那么负载容量为4*0.75=3
+        HashMap<Integer, String> map = new HashMap<>(4, 0.75f);
 
+        // 插入5个元素，触发扩容
+        map.put(1, "one");
+        map.put(2, "two");
+        map.put(3, "three");
+        System.out.println("容量：" + getCapacity(map)); // 容量：4
+        System.out.println("元素个数：" + map.size()); // 元素个数：3
+        System.out.println("---------");
+        map.put(4, "four"); // 先放元素，再检查扩容  当前元素的数量4>负载容量3
+        System.out.println("容量：" + getCapacity(map)); // 容量：8
+        System.out.println("元素个数：" + map.size()); // 元素个数：4
+        System.out.println("---------");
+        map.put(5, "five");
+        System.out.println("容量：" + getCapacity(map)); // 容量：8
+        System.out.println("元素个数：" + map.size()); // 元素个数：5
+        System.out.println("---------");
+
+    }
+
+    /**
+     * 获取map中数组的容量
+     * @param map
+     * @return
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static int getCapacity(HashMap map) throws NoSuchFieldException, IllegalAccessException {
+        Field tableField = HashMap.class.getDeclaredField("table");
+        tableField.setAccessible(true);
+        Object[] table = (Object[]) tableField.get(map);
+        return table.length; // 表示数组的容量，而不是数组中元素的个数
     }
 
 

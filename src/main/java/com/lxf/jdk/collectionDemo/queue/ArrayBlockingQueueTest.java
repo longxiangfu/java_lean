@@ -6,7 +6,7 @@ import java.util.concurrent.ArrayBlockingQueue;
  * ArrayBlockingQueue
  * 1、在初始化时必须指定容量，且容量不可修改
  * 2、存在公平访问和非公平访问
- * 3、访问线程安全（ReenterLock）
+ * 3、线程安全的（ReenterLock）
  */
 public class ArrayBlockingQueueTest {
     public static void main(String[] args) {

@@ -13,9 +13,11 @@ public class Test {
         Vector vector = new Vector();
         vector.add("a");
 
+        // 线程安全
         Hashtable hashtable = new Hashtable();
         hashtable.put("a", "aaa");
 
+        // 线程安全
         Stack stack = new Stack();
         stack.push("aaa");
 

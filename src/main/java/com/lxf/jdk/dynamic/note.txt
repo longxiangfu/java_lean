@@ -1,5 +1,5 @@
 jdk动态代理和CGLIB总结
 1、jdk动态代理是实现目标类的接口；Lib动态代理是继承目标类
-2、创建代理jdk比lib快。jdk是直接生成字节码；lib是通过ASM生成字节码，较为复杂
-3、执行方法效率jdk比lib低。jdk通过java反射机制（Method.invoke）；lib通过FastClass机制（为代理类和被代理类分别创建
-   一个class,这个class存储了代理类和被代理类方法的index,通过index直接定位到方法，进行调用）
+2、创建代理jdk比lib快。jdk是直接生成字节码；lib是通过ASM库生成字节码，较为复杂
+3、执行方法效率jdk比lib低。jdk通过java反射机制（Method.invoke），性能较低；lib通过FastClass机制（为代理类和被代理类分别创建
+   一个class,这个class存储了代理类和被代理类方法的索引,通过索引直接定位到方法，进行调用）

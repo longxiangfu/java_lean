@@ -3,6 +3,7 @@ package com.lxf.jdk.concurrent.multiThread;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * 1、基本操作 get\set\remove
@@ -11,6 +12,8 @@ import java.sql.SQLException;
  *  Thread ref -> Thread -> ThreadLocalMap -> Entry<ThreadLocal, value>
  */
 public class ThreadLocalDemo1 {
+	private static ArrayList arrayList = new ArrayList<>();
+	private String a;
 
 	public static Connection main(String[] args) throws SQLException {
 		ThreadLocal<Connection> conn = new ThreadLocal<>();
@@ -29,7 +32,6 @@ public class ThreadLocalDemo1 {
 			
 		}
 		return con;
-		
 
 	}
 

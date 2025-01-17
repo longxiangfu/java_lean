@@ -5,7 +5,7 @@ import java.net.Socket;
 
 /**
  * BIO
- * 同步阻塞，基层基于阻塞IO模型
+ * 同步阻塞
  */
 public class Server {
 

@@ -19,7 +19,7 @@ public class CGLIBProxyFactory{
         Enhancer enhancer = new Enhancer();
         // 继承目标类
         enhancer.setSuperclass(target.getClass());
-        // 添加了两个拦截器
+        // 添加了两个拦截器   NoOp.INSTANCE表示该拦截器不做任何处理
         enhancer.setCallbacks(new Callback[]{new MethodInterceptor() {
             /**
              * 拦截器

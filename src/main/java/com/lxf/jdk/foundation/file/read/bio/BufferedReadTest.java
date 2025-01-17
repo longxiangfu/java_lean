@@ -1,4 +1,4 @@
-package com.lxf.jdk.foundation.file.read.bufferReader;
+package com.lxf.jdk.foundation.file.read.bio;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
@@ -7,6 +7,8 @@ import java.io.*;
 
 /**
  * 测试BufferedReader读取超大文件
+ * 同步阻塞
+ * 磁盘io
  */
 @Slf4j
 public class BufferedReadTest {

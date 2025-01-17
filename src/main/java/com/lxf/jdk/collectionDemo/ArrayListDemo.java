@@ -1,5 +1,7 @@
 package com.lxf.jdk.collectionDemo;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -9,15 +11,16 @@ public class ArrayListDemo {
 //        list.add(1);
 //        list.add(2);
 //        list.add(3);
-//        System.out.println(Arrays.toString(list.toArray()));//[1, 2, 3]
-//        //替换
+//        System.out.println(list); // [1, 2, 3]
+
+        //替换
 //        list.replaceAll(e -> e+10);
 //        list.stream().forEach(e ->{
 //            System.out.println(e);
 //        });
 //
 //        //排序
-//        list.sort((a1, a2) -> a2 - a1);
+//        list.sort((a1, a2) -> a2.compareTo(a1));
 //        list.stream().forEach(e ->{
 //            System.out.println(e);
 //        });
@@ -29,7 +32,7 @@ public class ArrayListDemo {
 //        });
 
 
-//        //分隔迭代器    元素分隔后分别进行运算，之后可以并行计算。
+        // 分隔迭代器    元素分隔后分别进行运算，之后可以并行计算。
 //        List<String> list1 = new ArrayList<>();
 //        list1.add("1");
 //        list1.add("2");
@@ -57,10 +60,11 @@ public class ArrayListDemo {
 
 
 //        //判断是否可以添加null
-//        list1.add(null);
+//        List<Integer> list2 = new ArrayList<>();
+//        list2.add(null); // 集合可以添加null
 
-//        //Collection是集合顶级接口（最顶级是Iterator）,定义了集合的一些基本操作，如size(),isEmpty(),containss()等
-//        //Collections是集合工具类，进行集合排序、线程安全操作等
+        //Collection是集合顶级接口（最顶级是Iterator）,定义了集合的一些基本操作，如size(),isEmpty(),contains()等
+        //Collections是集合工具类，进行集合排序、线程安全操作等
 //        List<String> list = new ArrayList<>();
 //        list.add("a");
 //        list.add("b");
@@ -106,14 +110,14 @@ public class ArrayListDemo {
 
 
         // 集合元素拼接成以逗号分隔的字符串
-//        List<String> list = new ArrayList<>();
-//        list.add("a");
-//        list.add("b");
-//        list.add("c");
-//        String join = list.stream().collect(Collectors.joining(","));
-//        String join1 = String.join(",", list);
-//        System.out.println("join:" + join); // join:a,b,c
-//        System.out.println("join1:" + join1); // join1:a,b,c
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        String join = list.stream().collect(Collectors.joining(","));
+        String join1 = String.join(",", list);
+        System.out.println("join:" + join); // join:a,b,c
+        System.out.println("join1:" + join1); // join1:a,b,c
 
 
     }

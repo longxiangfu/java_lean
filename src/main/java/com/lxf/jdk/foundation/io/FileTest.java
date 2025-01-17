@@ -9,9 +9,9 @@ import java.nio.file.*;
 public class FileTest {
     public static void main(String[] args) throws IOException {
         //写入
-        Files.write(Paths.get("C:\\Users\\Administrator\\Desktop\\1.txt"), "追加内容".getBytes(), StandardOpenOption.APPEND);
+        Files.write(Paths.get("C:\\Users\\feilong\\Desktop\\1.txt"), "追加内容".getBytes(), StandardOpenOption.APPEND);
         //读出
-        byte[] bytes = Files.readAllBytes(Paths.get("C:\\Users\\Administrator\\Desktop\\1.txt"));
+        byte[] bytes = Files.readAllBytes(Paths.get("C:\\Users\\feilong\\Desktop\\1.txt"));
         System.out.println(new String(bytes, "utf-8"));
     }
 }

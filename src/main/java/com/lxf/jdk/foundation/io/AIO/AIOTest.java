@@ -18,7 +18,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 异步非阻塞：底层基于异步IO模型
+ * 异步非阻塞
  * 网络io
  */
 public class AIOTest {

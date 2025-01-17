@@ -51,12 +51,6 @@
             <artifactId>lombok</artifactId>
             <version>1.18.4</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>29.0-jre</version>
-        </dependency>
 
         <!-- spring状态机-->
         <dependency>
@@ -81,21 +75,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-test</artifactId>
-            <scope>test</scope>
-        </dependency>
         <!-- Spring Boot 响应式 MongoDB 依赖 -->
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
             <!--<artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>-->
         <!--</dependency>-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.9</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>druid-spring-boot-starter</artifactId>-->
+<!--            <version>1.1.9</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -239,11 +228,11 @@
         </dependency>
 
         <!--自定义starter-->
-        <dependency>
-            <groupId>com.tp</groupId>
-            <artifactId>spilit-spring-boot-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.tp</groupId>-->
+<!--            <artifactId>spilit-spring-boot-starter</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
         <!--rabbitmq-->
         <!--<dependency>-->

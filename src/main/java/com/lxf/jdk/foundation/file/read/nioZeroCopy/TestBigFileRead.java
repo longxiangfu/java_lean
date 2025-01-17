@@ -2,6 +2,11 @@ package com.lxf.jdk.foundation.file.read.nioZeroCopy;
 
 import java.nio.charset.StandardCharsets;
 
+/**
+ * 零拷贝
+ * 示例只演示了读，未演示写
+ * java支持操作系统零拷贝MappedByteBuffer
+ */
 public class TestBigFileRead {
     public static void main(String[] args) {
         String bigFilePath = "D:\\test.txt";

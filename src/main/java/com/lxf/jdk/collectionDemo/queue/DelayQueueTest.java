@@ -14,8 +14,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 手动实现延迟消息队列
  */
 public class DelayQueueTest {
-    private static AtomicInteger MESSAGE_NO = new AtomicInteger(1);
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final AtomicInteger MESSAGE_NO = new AtomicInteger(1);
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static void main(String[] args) {
         DelayQueue<Element> delayQueue = new DelayQueue();
@@ -32,7 +32,7 @@ public class DelayQueueTest {
             while (true){
                 try {
                     Element element = delayQueue.take();
-                    System.out.println(element.toString());
+                    System.out.println("消费者获取到元素：" + element);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -53,7 +53,7 @@ public class DelayQueueTest {
                 }
                 //消息
                 String message = String.format("%s，消息编号：%s，发送时间：%s，延迟时间：%s秒",
-                        producer, MESSAGE_NO.getAndIncrement(), formatter.format(LocalDateTime.now()), delayTime);
+                        producer, MESSAGE_NO.getAndIncrement(), formatter.format(LocalDateTime.now()), delayTime/1000);
                 delayQueue.put(new Element(message, delayTime));
             }
 

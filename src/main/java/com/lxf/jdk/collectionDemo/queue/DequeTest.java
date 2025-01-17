@@ -12,8 +12,8 @@ public class DequeTest {
         deque.add("A");
         deque.add("B");
         deque.add("C");
-        if (!deque.isEmpty()) {
-            System.out.println(deque.peek());
+        for (int i = 0; i < 3; i++) {
+            System.out.println(deque.poll());
         }
     }
 
