@@ -14,7 +14,7 @@ public class ThreadPoolExecutorTest {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 5,
                 10L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(2),
                 new MyThreadFactory(), new ThreadPoolExecutor.CallerRunsPolicy());//拒绝策略
-        executor.allowCoreThreadTimeOut(true);
+        executor.allowCoreThreadTimeOut(true); // 设置允许核心线程超时
         //测试submit时，阻塞线程是否进入到队列中，答案否
         new Thread(() ->{
             BlockingQueue<Runnable> queue = executor.getQueue();

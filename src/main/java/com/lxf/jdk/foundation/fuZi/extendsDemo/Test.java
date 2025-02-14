@@ -15,5 +15,12 @@ public class Test {
         appleTree.grow();
         //方法是可以重写的（实例方法和静态方法）
         appleTree.grow1();
+
+
+        // 继承、多态
+        Plant plant = new AppleTree(); // 这种写法无法调用子类特有的方法
+        plant.grow();
+        plant.grow1();
+//        plant.grow2();
     }
 }

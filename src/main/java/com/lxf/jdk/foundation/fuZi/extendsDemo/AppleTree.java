@@ -6,4 +6,8 @@ public class AppleTree extends Plant {
     public static void grow1(){
         System.out.println("子类的grow1方法");
     }
+
+    public static void grow2(){
+        System.out.println("子类的grow2方法");
+    }
 }
